@@ -12,7 +12,7 @@ nav{background:#fff;box-shadow:0 2px 15px rgba(0,0,0,.1);position:sticky;top:0;z
 .logo{font-size:22px;font-weight:900;color:#ff6a00}.logo span{color:#1a7a00}
 nav ul{display:flex;list-style:none;gap:25px}nav ul li{font-weight:600}
 .order-btn{background:#ff6a00;color:#fff;padding:9px 18px;border-radius:25px;font-weight:700;border:none;cursor:pointer}
-.admin-btn{background:#111;color:#fff;padding:9px 18px;border-radius:25px;font-weight:700;border:none;cursor:pointer}
+.admin-btn{background:#111;color:#fff;padding:7px 12px !important;border-radius:25px;font-weight:700;border:none;cursor:pointer;font-size:13px !important;white-space:nowrap}
 .hero{background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),url('https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=1200&q=80');background-size:cover;background-position:center;color:#fff;text-align:center;padding:80px 20px}
 .hero h1{font-size:42px}.hero h1 span{color:#ffc107}.hero p{margin:15px auto;max-width:650px;font-size:18px}
 .hero button{background:#ff6a00;border:none;color:#fff;padding:13px 28px;border-radius:30px;font-size:17px;font-weight:700;margin:5px;cursor:pointer}.hero button.white{background:#fff;color:#333}
@@ -36,9 +36,9 @@ footer{background:#111;color:#aaa;text-align:center;padding:20px}footer b{color:
 </style>
 </head>
 <body>
-<a class="wa-float" href="https://wa.me/923317524646" target="_blank">💬</a>
-<nav><div class="logo">MENDOZA <span>Food & Beverages</span></div><ul><li><a href="#home">Home</a></li><li><a href="#about">About Us</a></li><li><a href="#products">Our Products</a></li><li><a href="#contact">Contact</a></li></ul><div><button class="admin-btn" onclick="openAdmin()">⚙️ Admin</button> <a href="https://wa.me/923317524646" target="_blank" class="order-btn">WhatsApp Order</a></div></nav>
-<section class="hero" id="home"><h1>Fresh, Pure & Tasty<br><span>Mendoza Food & Beverages</span></h1><p>200ml Tetra Pack to 5 Litre Water - Mango, Orange, Cherry, Milk, Cola & Malta. Sab kuch ek hi jagah!</p><button onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">View Products 🥤</button><button class="white" onclick="window.open('https://wa.me/923317524646','_blank')">WhatsApp: 0331 7524646</button><p style="margin-top:15px;font-weight:700">⭐ Total <span id="totalCount">25</span> Products | ⭐ Best Quality | ⭐ Fast Delivery</p></section>
+<a class="wa-float" id="waFloat" href="https://wa.me/923317524646" target="_blank">💬</a>
+<nav><div class="logo">MENDOZA <span>Food & Beverages</span></div><ul><li><a href="#home">Home</a></li><li><a href="#about">About Us</a></li><li><a href="#products">Our Products</a></li><li><a href="#contact">Contact</a></li></ul><div><button class="admin-btn" onclick="openAdmin()">⚙️ Admin</button> <a id="navOrderBtn" href="https://wa.me/923317524646" target="_blank" class="order-btn">WhatsApp Order</a></div></nav>
+<section class="hero" id="home"><h1>Fresh, Pure & Tasty<br><span>Mendoza Food & Beverages</span></h1><p>200ml Tetra Pack to 5 Litre Water - Mango, Orange, Cherry, Milk, Cola & Malta. Sab kuch ek hi jagah!</p><button onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">View Products 🥤</button><button class="white" id="heroWaBtn" onclick="window.open('https://wa.me/923317524646','_blank')">WhatsApp: 0331 7524646</button><p style="margin-top:15px;font-weight:700">⭐ Total <span id="totalCount">25</span> Products | ⭐ Best Quality | ⭐ Fast Delivery</p></section>
 
 <div class="admin-panel" id="adminPanel">
 <h2>⚙️ Admin Panel - Apni Marzi Se Product Add / Edit / Delete Karein</h2>
@@ -54,19 +54,56 @@ footer{background:#111;color:#aaa;text-align:center;padding:20px}footer b{color:
 <button style="background:#ff6a00;color:#fff" onclick="cancelEdit()">Cancel</button>
 <button style="background:#e53935;color:#fff" onclick="resetAll()">🔄 Reset to Original 25</button>
 <button style="background:#111;color:#fff" onclick="closeAdmin()">Close Admin</button>
+<hr style="margin:25px 0">
+<h3 style="margin-bottom:12px">📞 Contact Settings - Number / Email / Address Yahan Se Badlein</h3>
+<input type="text" id="cPhone" placeholder="WhatsApp Number - jaise 923317524646 (92 ke saath, baghair + ke)">
+<input type="text" id="cPhoneDisplay" placeholder="Dikhane wala Number - jaise 0331 7524646">
+<input type="text" id="cEmail" placeholder="Email - jaise mendozafoodandbeverages@gmail.com">
+<input type="text" id="cAddress" placeholder="Company Address - jaise Karachi, Pakistan">
+<button style="background:#25D366;color:#fff" onclick="saveContact()">💾 Contact Save Karein</button>
+<p style="color:#666;margin-top:10px;font-size:13px">Ye save karte hi poori site par number, email aur address khud badal jayega.</p>
 </div>
 
 <div class="section" id="about"><h2>About Us</h2><p class="sub">Humari kahani - Purity se lekar aapke ghar tak</p><div class="about"><img src="https://images.unsplash.com/photo-1613478223719-2ab802602423?w=800&q=80"><div><h3>Why Mendoza Food & Beverages?</h3><p><b>Mendoza Food & Beverages</b> ek trusted brand hai jo fresh fruits, pure water aur high quality milk se bane products aap tak pahunchata hai.</p><p>Humara maqsad hai - Har ghar me sehatmand, taza aur sasta drink pahunche. Chhota pack ho ya bara family pack, quality me koi samjhota nahi.</p><div class="features"><span>✅ 100% Pure</span><span>✅ Fresh Fruits</span><span>✅ Best Price</span><span>✅ Fast Delivery</span></div></div></div></div>
 <div class="section" id="products"><h2>Our Products</h2><p class="sub">Total <span id="total2">25</span> Items - Select Category</p>
 <div class="filter"><button class="active" onclick="filterP('all',this)">All</button><button onclick="filterP('juice',this)">Tetra Pack Juice</button><button onclick="filterP('bottle',this)">Bottle Juice</button><button onclick="filterP('water',this)">Water</button><button onclick="filterP('milk',this)">Milk</button><button onclick="filterP('cold',this)">Cold Drink</button></div>
 <div class="grid" id="grid"></div></div>
-<div class="section" id="contact"><h2>Contact Us</h2><p class="sub">Order ke liye rabta karein</p><div class="contact-box"><div class="contact-info"><h3>🏢 Company Address</h3><p><b>Company Name:</b> Mendoza Food & Beverages<br><b>Address:</b> Karachi, Pakistan<br><br><b>📧 Email Address:</b><br>mendozafoodandbeverages@gmail.com<br><br><b>📞 Phone / WhatsApp:</b><br><a href="https://wa.me/923317524646" target="_blank">0331 7524646 - Click to Chat</a><br><br><b>🕐 Timing:</b><br>Mon - Sat: 9 AM - 9 PM<br>Sun: 10 AM - 6 PM</p></div><form onsubmit="sendOrder(event)"><h3>Order / Inquiry Form</h3><input type="text" id="name" placeholder="Your Name *" required><input type="tel" id="phone" placeholder="Phone / WhatsApp *" required><input type="email" id="email" placeholder="Email Address"><select id="product"><option>Select Product</option><option>Mango Juice 200ml</option><option>Orange Juice 200ml</option><option>Cherry Juice 200ml</option><option>Mango 1 Litre</option><option>Mendoza Cola 300ml</option><option>Mendoza Malta 1 Litre</option><option>Pure Water 5 Litre</option><option>Milk 200ml</option></select><textarea id="msg" rows="3" placeholder="Your Message / Quantity"></textarea><button type="submit">Send Order on WhatsApp</button><p id="success" style="color:green;margin-top:10px;display:none">✅ Thank you! WhatsApp khul raha hai...</p></form></div></div>
-<footer><b>MENDOZA Food & Beverages</b> | Home | About Us | Our Products | Contact<br>Email: mendozafoodandbeverages@gmail.com | WhatsApp: 0331 7524646 | Address: Karachi, Pakistan<br>© 2026 All Rights Reserved</footer>
+<div class="section" id="contact"><h2>Contact Us</h2><p class="sub">Order ke liye rabta karein</p><div class="contact-box"><div class="contact-info"><h3>🏢 Company Address</h3><p><b>Company Name:</b> Mendoza Food & Beverages<br><b>Address:</b> <span id="contactAddress">Karachi, Pakistan</span><br><br><b>📧 Email Address:</b><br><span id="contactEmail">mendozafoodandbeverages@gmail.com</span><br><br><b>📞 Phone / WhatsApp:</b><br><a id="contactPhoneLink" href="https://wa.me/923317524646" target="_blank"><span id="contactPhone">0331 7524646</span> - Click to Chat</a><br><br><b>🕐 Timing:</b><br>Mon - Sat: 9 AM - 9 PM<br>Sun: 10 AM - 6 PM</p></div><form onsubmit="sendOrder(event)"><h3>Order / Inquiry Form</h3><input type="text" id="name" placeholder="Your Name *" required><input type="tel" id="phone" placeholder="Phone / WhatsApp *" required><input type="email" id="email" placeholder="Email Address"><select id="product"><option>Select Product</option><option>Mango Juice 200ml</option><option>Orange Juice 200ml</option><option>Cherry Juice 200ml</option><option>Mango 1 Litre</option><option>Mendoza Cola 300ml</option><option>Mendoza Malta 1 Litre</option><option>Pure Water 5 Litre</option><option>Milk 200ml</option></select><textarea id="msg" rows="3" placeholder="Your Message / Quantity"></textarea><button type="submit">Send Order on WhatsApp</button><p id="success" style="color:green;margin-top:10px;display:none">✅ Thank you! WhatsApp khul raha hai...</p></form></div></div>
+<footer><b>MENDOZA Food & Beverages</b> | Home | About Us | Our Products | Contact<br><span id="footerContact">Email: mendozafoodandbeverages@gmail.com | WhatsApp: 0331 7524646 | Address: Karachi, Pakistan</span><br>© 2026 All Rights Reserved</footer>
 
 <script>
 let isAdmin=false;
 let products=[];
 let defaultImg="https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=600&q=80";
+let settings={phone:'923317524646',display:'0331 7524646',email:'mendozafoodandbeverages@gmail.com',address:'Karachi, Pakistan'};
+function loadSettings(){let s=localStorage.getItem('mendoza_settings');if(s){try{settings={...settings,...JSON.parse(s)}}catch(e){}}applySettings();}
+function applySettings(){
+document.getElementById('waFloat').href='https://wa.me/'+settings.phone;
+document.getElementById('navOrderBtn').href='https://wa.me/'+settings.phone;
+document.getElementById('heroWaBtn').innerText='WhatsApp: '+settings.display;
+document.getElementById('heroWaBtn').onclick=function(){window.open('https://wa.me/'+settings.phone,'_blank')};
+document.getElementById('contactAddress').innerText=settings.address;
+document.getElementById('contactEmail').innerText=settings.email;
+document.getElementById('contactPhone').innerText=settings.display;
+document.getElementById('contactPhoneLink').href='https://wa.me/'+settings.phone;
+document.getElementById('footerContact').innerText='Email: '+settings.email+' | WhatsApp: '+settings.display+' | Address: '+settings.address;
+let cp=document.getElementById('cPhone');if(cp)cp.value=settings.phone;
+let cd=document.getElementById('cPhoneDisplay');if(cd)cd.value=settings.display;
+let ce=document.getElementById('cEmail');if(ce)ce.value=settings.email;
+let ca=document.getElementById('cAddress');if(ca)ca.value=settings.address;
+}
+function saveContact(){
+let p=document.getElementById('cPhone').value.trim().replace(/[^0-9]/g,'');
+let d=document.getElementById('cPhoneDisplay').value.trim();
+let e=document.getElementById('cEmail').value.trim();
+let a=document.getElementById('cAddress').value.trim();
+if(!p){alert('Number zaroor likhein!');return;}
+if(!d)d=p;
+settings={phone:p,display:d,email:e||settings.email,address:a||settings.address};
+localStorage.setItem('mendoza_settings',JSON.stringify(settings));
+applySettings();render();
+alert('✅ Contact Save ho gaya! Number / Email / Address poori site par badal gaya.');
+}
 function getDefault(){
 return [
 {id:1,cat:'juice',name:'Mango Flavour',desc:'Juice Tetra Pack',size:'200ml',img:defaultImg},
@@ -95,13 +132,13 @@ return [
 {id:24,cat:'cold',name:'Mendoza Malta',desc:'Orange Soda - New PET Shape',size:'1 Litre',img:defaultImg},
 {id:25,cat:'cold',name:'Mendoza Malta',desc:'Orange Soda - New PET Shape',size:'1.5 Litre',img:defaultImg},
 ];}
-function load(){let s=localStorage.getItem('mendoza_products');products=s?JSON.parse(s):getDefault();render();}
+function load(){let s=localStorage.getItem('mendoza_products');products=s?JSON.parse(s):getDefault();loadSettings();render();}
 function save(){localStorage.setItem('mendoza_products',JSON.stringify(products));}
 function render(){
 let grid=document.getElementById('grid');grid.innerHTML='';
 products.forEach(p=>{
 let badge=p.cat==='juice'?'TETRA PACK':p.cat==='bottle'?'BOTTLE':p.cat==='water'?'PURE WATER':p.cat==='milk'?'MILK':'COLD DRINK';
-grid.innerHTML+=`<div class="card ${p.cat}"><img src="${p.img}"><div class="card-body"><span class="badge">${badge}</span><h3>${p.name}</h3><p>${p.desc}</p><div class="price">${p.size}</div><button onclick="window.open('https://wa.me/923317524646?text=I want ${encodeURIComponent(p.name+' '+p.size)}','_blank')">Order Now</button>${isAdmin?`<button class="editBtn" onclick="editProduct(${p.id})">✏️ Edit</button><button class="delBtn" onclick="deleteProduct(${p.id})">🗑️ Delete</button>`:''}</div></div>`;
+grid.innerHTML+=`<div class="card ${p.cat}"><img src="${p.img}"><div class="card-body"><span class="badge">${badge}</span><h3>${p.name}</h3><p>${p.desc}</p><div class="price">${p.size}</div><button onclick="window.open('https://wa.me/${settings.phone}?text=I want ${encodeURIComponent(p.name+' '+p.size)}','_blank')">Order Now</button>${isAdmin?`<button class="editBtn" onclick="editProduct(${p.id})">✏️ Edit</button><button class="delBtn" onclick="deleteProduct(${p.id})">🗑️ Delete</button>`:''}</div></div>`;
 });
 document.getElementById('totalCount').innerText=products.length;
 document.getElementById('total2').innerText=products.length;
@@ -126,8 +163,8 @@ function editProduct(id){let p=products.find(x=>x.id==id);document.getElementByI
 function deleteProduct(id){if(confirm('Kya aap is product ko delete karna chahte hain?')){products=products.filter(x=>x.id!=id);save();render();}}
 function cancelEdit(){document.getElementById('pName').value='';document.getElementById('pDesc').value='';document.getElementById('pSize').value='';document.getElementById('editId').value='';document.getElementById('previewImg').style.display='none';document.getElementById('pImage').value='';}
 function resetAll(){if(confirm('Sab kuch wapas original 25 par kar dein?')){localStorage.removeItem('mendoza_products');products=getDefault();save();render();}}
-function sendOrder(e){e.preventDefault();var text="Hello Mendoza! Name: "+document.getElementById('name').value+" | Phone: "+document.getElementById('phone').value+" | Product: "+document.getElementById('product').value+" | Message: "+document.getElementById('msg').value;document.getElementById('success').style.display='block';window.open('https://wa.me/923317524646?text='+encodeURIComponent(text),'_blank');}
+function sendOrder(e){e.preventDefault();var text="Hello Mendoza! Name: "+document.getElementById('name').value+" | Phone: "+document.getElementById('phone').value+" | Product: "+document.getElementById('product').value+" | Message: "+document.getElementById('msg').value;document.getElementById('success').style.display='block';window.open('https://wa.me/'+settings.phone+'?text='+encodeURIComponent(text),'_blank');}
 load();
 </script>
 </body>
-</html>
+  </html>
