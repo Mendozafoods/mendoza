@@ -9,125 +9,300 @@
 body{background:#fffaf0;color:#333}
 a{text-decoration:none;color:inherit}
 nav{background:#fff;box-shadow:0 2px 15px rgba(0,0,0,.1);position:sticky;top:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:12px 5%}
-.logo{font-size:22px;font-weight:900;color:#ff6a00}.logo span{color:#1a7a00}
-nav ul{display:flex;list-style:none;gap:25px}nav ul li{font-weight:600}
-.order-btn{background:#ff6a00;color:#fff;padding:9px 18px;border-radius:25px;font-weight:700;border:none;cursor:pointer}
-.admin-btn{background:#111;color:#fff;padding:9px 18px;border-radius:25px;font-weight:700;border:none;cursor:pointer}
-.hero{background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),url('https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=1200&q=80');background-size:cover;background-position:center;color:#fff;text-align:center;padding:80px 20px}
-.hero h1{font-size:42px}.hero h1 span{color:#ffc107}.hero p{margin:15px auto;max-width:650px;font-size:18px}
-.hero button{background:#ff6a00;border:none;color:#fff;padding:13px 28px;border-radius:30px;font-size:17px;font-weight:700;margin:5px;cursor:pointer}.hero button.white{background:#fff;color:#333}
-.wa-float{position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;z-index:999}
-.section{max-width:1100px;margin:auto;padding:50px 20px}.section h2{text-align:center;font-size:32px}.section p.sub{text-align:center;color:#777;margin-bottom:30px}
+.logo{font-size:22px;font-weight:900;color:#ff6a00}
+.logo span{color:#1a7a00}
+nav ul{display:flex;list-style:none;gap:25px}
+nav ul li{font-weight:600;cursor:pointer}
+nav ul li:hover{color:#ff6a00}
+.order-btn{background:#ff6a00;color:#fff;padding:9px 18px;border-radius:25px;font-weight:700}
+.admin-btn{background:#333;color:#fff;border:none;padding:7px 10px !important;font-size:12px !important;border-radius:20px;cursor:pointer;font-weight:700;margin-left:8px}
+.hero{position:relative;background-size:cover;background-position:center;color:#fff;text-align:center;padding:90px 20px;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.45);z-index:0}
+.hero>*{position:relative;z-index:1}
+.hero h1{font-size:42px;line-height:1.2}
+.hero h1 span{color:#ffc107}
+.hero p{margin:15px auto;max-width:650px;font-size:18px}
+.hero button{background:#ff6a00;border:none;color:#fff;padding:13px 28px;border-radius:30px;font-size:17px;font-weight:700;cursor:pointer;margin:5px}
+.hero button.white{background:#fff;color:#333}
+.wa-float{position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;z-index:999;box-shadow:0 5px 15px rgba(0,0,0,.3)}
+.section{max-width:1100px;margin:auto;padding:50px 20px}
+.section h2{text-align:center;font-size:32px;margin-bottom:8px}
+.section p.sub{text-align:center;color:#777;margin-bottom:30px}
 .about{display:flex;gap:30px;flex-wrap:wrap;align-items:center;background:#fff;border-radius:20px;padding:25px;box-shadow:0 5px 20px rgba(0,0,0,.08)}
-.about img{width:100%;max-width:450px;border-radius:15px}.about div{flex:1;min-width:280px}.about h3{font-size:26px;color:#ff6a00}
-.features{display:flex;gap:15px;flex-wrap:wrap;margin-top:15px}.features span{background:#fff3e0;padding:8px 14px;border-radius:20px;font-weight:600}
-.filter{text-align:center;margin-bottom:25px}.filter button{padding:9px 18px;border:1px solid #ff6a00;background:#fff;border-radius:20px;margin:3px;font-weight:600;cursor:pointer}.filter button.active,.filter button:hover{background:#ff6a00;color:#fff}
+.about img{width:100%;max-width:450px;border-radius:15px}
+.about div{flex:1;min-width:280px}
+.about h3{font-size:26px;margin-bottom:10px;color:#ff6a00}
+.about p{line-height:1.7;margin-bottom:10px}
+.features{display:flex;gap:15px;flex-wrap:wrap;margin-top:15px}
+.features span{background:#fff3e0;padding:8px 14px;border-radius:20px;font-weight:600;font-size:14px}
+.filter{text-align:center;margin-bottom:25px}
+.filter button{padding:9px 18px;border:1px solid #ff6a00;background:#fff;border-radius:20px;cursor:pointer;margin:3px;font-weight:600}
+.filter button.active,.filter button:hover{background:#ff6a00;color:#fff}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px}
-.card{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 5px 20px rgba(0,0,0,.08)}.card img{width:100%;height:180px;object-fit:cover}.card-body{padding:15px}.badge{display:inline-block;background:#e8f5e9;color:#1a7a00;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:700}.price{font-weight:800;color:#ff6a00;font-size:18px;margin-top:8px}.card-body button{width:100%;background:#1a7a00;color:#fff;border:none;padding:10px;border-radius:10px;margin-top:10px;font-weight:700;cursor:pointer}
-.card .editBtn{background:#ff6a00}.card .delBtn{background:#e53935}
-.admin-panel{display:none;background:#fff;max-width:1100px;margin:20px auto;padding:25px;border-radius:18px;box-shadow:0 5px 20px rgba(0,0,0,.15)}
-.admin-panel input,.admin-panel select{width:100%;padding:12px;margin-bottom:12px;border:1px solid #ddd;border-radius:10px}
-.admin-panel button{padding:12px 20px;border:none;border-radius:10px;font-weight:700;cursor:pointer;margin-right:10px}
-.preview{width:120px;height:120px;object-fit:cover;border-radius:10px;display:none;margin-bottom:10px}
-.contact-box{display:flex;gap:25px;flex-wrap:wrap}.contact-info{flex:1;min-width:280px;background:#222;color:#fff;padding:25px;border-radius:18px;line-height:2}.contact-info h3{color:#ffc107}.contact-info b{color:#ff9d4d}.contact-info a{color:#25D366;font-weight:700}
-form{flex:1;min-width:280px;background:#fff;padding:25px;border-radius:18px;box-shadow:0 5px 20px rgba(0,0,0,.08)}form input,form textarea,form select{width:100%;padding:12px;margin-bottom:12px;border:1px solid #ddd;border-radius:10px}form button{background:#25D366;color:#fff;border:none;padding:12px;width:100%;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer}
-footer{background:#111;color:#aaa;text-align:center;padding:20px}footer b{color:#fff}
+.card{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 5px 20px rgba(0,0,0,.08);transition:.3s}
+.card:hover{transform:translateY(-5px)}
+.card img{width:100%;height:180px;object-fit:cover}
+.card-body{padding:15px}
+.card-body h3{font-size:18px}
+.card-body p{color:#777;font-size:14px;margin:5px 0}
+.badge{display:inline-block;background:#e8f5e9;color:#1a7a00;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:700}
+.price{font-weight:800;color:#ff6a00;font-size:18px;margin-top:8px}
+.card-body button{width:100%;background:#1a7a00;color:#fff;border:none;padding:10px;border-radius:10px;margin-top:10px;cursor:pointer;font-weight:700}
+.contact-box{display:flex;gap:25px;flex-wrap:wrap}
+.contact-info{flex:1;min-width:280px;background:#222;color:#fff;padding:25px;border-radius:18px;line-height:2}
+.contact-info h3{color:#ffc107;margin-bottom:10px}
+.contact-info b{color:#ff9d4d}
+.contact-info a{color:#25D366;font-weight:700}
+form{flex:1;min-width:280px;background:#fff;padding:25px;border-radius:18px;box-shadow:0 5px 20px rgba(0,0,0,.08)}
+form input,form textarea,form select{width:100%;padding:12px;margin-bottom:12px;border:1px solid #ddd;border-radius:10px}
+form button{background:#25D366;color:#fff;border:none;padding:12px;width:100%;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer}
+footer{background:#111;color:#aaa;text-align:center;padding:20px;margin-top:20px}
+footer b{color:#fff}
+#adminPanel{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:#fff;z-index:1000;overflow:auto;padding:20px}
+#adminPanel input,#adminPanel textarea{width:100%;padding:12px;margin:6px 0 12px;border:1px solid #ddd;border-radius:10px}
+#adminPanel h3{margin:20px 0 10px;color:#ff6a00;border-top:1px solid #eee;padding-top:15px}
+.banner-preview{width:100%;height:150px;object-fit:cover;border-radius:10px;border:2px dashed #ddd;margin-bottom:10px}
 @media(max-width:700px){nav ul{display:none}.hero h1{font-size:30px}}
 </style>
 </head>
 <body>
-<a class="wa-float" href="https://wa.me/923317524646" target="_blank">💬</a>
-<nav><div class="logo">MENDOZA <span>Food & Beverages</span></div><ul><li><a href="#home">Home</a></li><li><a href="#about">About Us</a></li><li><a href="#products">Our Products</a></li><li><a href="#contact">Contact</a></li></ul><div><button class="admin-btn" onclick="openAdmin()">⚙️ Admin</button> <a href="https://wa.me/923317524646" target="_blank" class="order-btn">WhatsApp Order</a></div></nav>
-<section class="hero" id="home"><h1>Fresh, Pure & Tasty<br><span>Mendoza Food & Beverages</span></h1><p>200ml Tetra Pack to 5 Litre Water - Mango, Orange, Cherry, Milk, Cola & Malta. Sab kuch ek hi jagah!</p><button onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">View Products 🥤</button><button class="white" onclick="window.open('https://wa.me/923317524646','_blank')">WhatsApp: 0331 7524646</button><p style="margin-top:15px;font-weight:700">⭐ Total <span id="totalCount">25</span> Products | ⭐ Best Quality | ⭐ Fast Delivery</p></section>
-
-<div class="admin-panel" id="adminPanel">
-<h2>⚙️ Admin Panel - Apni Marzi Se Product Add / Edit / Delete Karein</h2>
-<p style="margin-bottom:15px;color:#666">Yahan se aap khud tasveer upload, naam, size, category change kar sakte hain.</p>
-<img id="previewImg" class="preview">
-<input type="file" id="pImage" accept="image/*" onchange="previewImage(event)">
-<input type="text" id="pName" placeholder="Product Name - jaise Mendoza Cola">
-<input type="text" id="pDesc" placeholder="Description - jaise Chilled Cola">
-<input type="text" id="pSize" placeholder="Size - jaise 300ml / 1 Litre">
-<select id="pCat"><option value="juice">Tetra Pack Juice</option><option value="bottle">Bottle Juice</option><option value="water">Water</option><option value="milk">Milk</option><option value="cold">Cold Drink</option></select>
-<input type="hidden" id="editId">
-<button style="background:#1a7a00;color:#fff" onclick="saveProduct()">💾 Save Product</button>
-<button style="background:#ff6a00;color:#fff" onclick="cancelEdit()">Cancel</button>
-<button style="background:#e53935;color:#fff" onclick="resetAll()">🔄 Reset to Original 25</button>
-<button style="background:#111;color:#fff" onclick="closeAdmin()">Close Admin</button>
+<a class="wa-float" id="waFloat" href="https://wa.me/923317524646" target="_blank">💬</a>
+<nav>
+  <div class="logo">MENDOZA <span>Food & Beverages</span></div>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About Us</a></li>
+    <li><a href="#products">Our Products</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div style="display:flex;align-items:center">
+  <a id="navWaBtn" href="https://wa.me/923317524646" target="_blank" class="order-btn">WhatsApp Order</a>
+  <button class="admin-btn" onclick="openAdmin()">Admin</button>
+  </div>
+</nav>
+<section class="hero" id="home">
+  <h1>Fresh, Pure & Tasty<br><span>Mendoza Food & Beverages</span></h1>
+  <p>200ml Tetra Pack to 5 Litre Water - Mango, Orange, Cherry, Milk, Cola & Malta. Sab kuch ek hi jagah!</p>
+  <button onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">View Products 🥤</button>
+  <button class="white" onclick="window.open('https://wa.me/923317524646','_blank')">WhatsApp: 0331 7524646</button>
+  <p style="margin-top:15px;font-weight:700">⭐ Total 25 Products | ⭐ Best Quality | ⭐ Fast Delivery</p>
+</section>
+<div class="section" id="about">
+  <h2>About Us</h2>
+  <p class="sub">Humari kahani - Purity se lekar aapke ghar tak</p>
+  <div class="about">
+    <img src="https://images.unsplash.com/photo-1613478223719-2ab802602423?w=800&q=80" alt="Juice Factory">
+    <div>
+      <h3>Why Mendoza Food & Beverages?</h3>
+      <p><b>Mendoza Food & Beverages</b> ek trusted brand hai jo fresh fruits, pure water aur high quality milk se bane products aap tak pahunchata hai.</p>
+      <p>Humara maqsad hai - Har ghar me sehatmand, taza aur sasta drink pahunche. Chhota pack ho ya bara family pack, quality me koi samjhota nahi.</p>
+      <div class="features">
+        <span>✅ 100% Pure</span><span>✅ Fresh Fruits</span><span>✅ Best Price</span><span>✅ Fast Delivery</span>
+      </div>
+    </div>
+  </div>
 </div>
+<div class="section" id="products" style="padding-top:10px">
+  <h2>Our Products</h2>
+  <p class="sub">Total 25 Items - Select Category</p>
+  <div class="filter">
+    <button class="active" onclick="filterP('all',this)">All</button>
+    <button onclick="filterP('juice',this)">Tetra Pack Juice</button>
+    <button onclick="filterP('bottle',this)">Bottle Juice</button>
+    <button onclick="filterP('water',this)">Water</button>
+    <button onclick="filterP('milk',this)">Milk</button>
+    <button onclick="filterP('cold',this)">Cold Drink</button>
+  </div>
+  <div class="grid">
+    <div class="card juice"><img src="https://images.unsplash.com/photo-1553279768-865429fa0078?w=600&q=80"><div class="card-body"><span class="badge">TETRA PACK</span><h3>Mango Flavour</h3><p>Juice Tetra Pack</p><div class="price">200ml</div><button onclick="orderProduct('Mango Flavour 200ml')">Order Now</button></div></div>
+    <div class="card juice"><img src="https://images.unsplash.com/photo-1582979512210-99b6a8c1a1d2?w=600&q=80"><div class="card-body"><span class="badge">TETRA PACK</span><h3>Orange Flavour</h3><p>Juice Tetra Pack</p><div class="price">200ml</div><button onclick="orderProduct('Orange Flavour 200ml')">Order Now</button></div></div>
+    <div class="card juice"><img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=600&q=80"><div class="card-body"><span class="badge">TETRA PACK</span><h3>Cherry Flavour</h3><p>Juice Tetra Pack</p><div class="price">200ml</div><button onclick="orderProduct('Cherry Flavour 200ml')">Order Now</button></div></div>
+    <div class="card juice"><img src="https://images.unsplash.com/photo-1546173159-315724a31696?w=600&q=80"><div class="card-body"><span class="badge">TETRA PACK</span><h3>Mango</h3><p>Family Pack</p><div class="price">1 Litre</div><button onclick="orderProduct('Mango 1 Litre')">Order Now</button></div></div>
+    <div class="card juice"><img src="https://images.unsplash.com/photo-1546173159-315724a31696?w=600&q=80"><div class="card-body"><span class="badge">TETRA PACK</span><h3>Mango</h3><p>Family Pack</p><div class="price">1.5 Litre</div><button onclick="orderProduct('Mango 1.5 Litre')">Order Now</button></div></div>
+    <div class="card juice"><img src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=600&q=80"><div class="card-body"><span class="badge">TETRA PACK</span><h3>Orange</h3><p>Family Pack</p><div class="price">1 Litre / 1.5 Litre</div><button onclick="orderProduct('Orange Family Pack')">Order Now</button></div></div>
+    <div class="card juice"><img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?w=600&q=80"><div class="card-body"><span class="badge">TETRA PACK</span><h3>Cherry</h3><p>Family Pack</p><div class="price">1 Litre / 1.5 Litre</div><button onclick="orderProduct('Cherry Family Pack')">Order Now</button></div></div>
+    <div class="card bottle"><img src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=600&q=80"><div class="card-body"><span class="badge">BOTTLE</span><h3>Mango Bottle Juice</h3><p>Fresh Mango</p><div class="price">250ml / 1L / 1.5L</div><button onclick="orderProduct('Mango Bottle Juice')">Order Now</button></div></div>
+    <div class="card water"><img src="https://images.unsplash.com/photo-1523362628745-0c100150b504?w=600&q=80"><div class="card-body"><span class="badge">PURE WATER</span><h3>Pure Water Bottle</h3><p>100% Pure & Safe</p><div class="price">300ml / 1L / 1.5L / 5L</div><button onclick="orderProduct('Pure Water Bottle')">Order Now</button></div></div>
+    <div class="card milk"><img src="https://images.unsplash.com/photo-1550583724-b2692b85b150?w=600&q=80"><div class="card-body"><span class="badge">MILK</span><h3>Milk Tetra Pack</h3><p>Fresh Milk</p><div class="price">200ml</div><button onclick="orderProduct('Milk 200ml')">Order Now</button></div></div>
+    <div class="card milk"><img src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=600&q=80"><div class="card-body"><span class="badge">MILK</span><h3>Every Tea Time</h3><p>Powder Sachets</p><div class="price">Sachets</div><button onclick="orderProduct('Every Tea Time Sachets')">Order Now</button></div></div>
+    <div class="card cold"><img src="https://images.unsplash.com/photo-1554866585-cd94860890b7?w=600&q=80"><div class="card-body"><span class="badge">COLD DRINK</span><h3>Mendoza Cola</h3><p>Chilled Cola</p><div class="price">300ml / 1L / 1.5L</div><button onclick="orderProduct('Mendoza Cola')">Order Now</button></div></div>
+    <div class="card cold"><img src="https://images.unsplash.com/photo-1624517452488-04869289c4ca?w=600&q=80"><div class="card-body"><span class="badge">COLD DRINK</span><h3>Mendoza Lemon Fizz</h3><p>Fresh Lemon</p><div class="price">300ml</div><button onclick="orderProduct('Mendoza Lemon Fizz')">Order Now</button></div></div>
+    <div class="card cold"><img src="https://images.unsplash.com/photo-1535958636474-b021ee887b13?w=600&q=80"><div class="card-body"><span class="badge">COLD DRINK</span><h3>Mendoza Malta</h3><p>Energy Malta</p><div class="price">300ml / 1L / 1.5L</div><button onclick="orderProduct('Mendoza Malta')">Order Now</button></div></div>
+  </div>
+  <p style="text-align:center;margin-top:20px;color:#888">Note: Upar har category ka sample dikhaya hai. Full list me total 25 items hain.</p>
+</div>
+<div class="section" id="contact" style="padding-top:10px">
+  <h2>Contact Us</h2>
+  <p class="sub">Order ke liye rabta karein</p>
+  <div class="contact-box">
+    <div class="contact-info">
+      <h3>🏢 Company Address</h3>
+      <p><b>Company Name:</b> Mendoza Food & Beverages<br>
+      <b>Address:</b> <span id="showAddress">Karachi, Pakistan</span><br><br>
+      <b>📧 Email Address:</b><br><span id="showEmail">mendozafoodandbeverages@gmail.com</span><br><br>
+      <b>📞 Phone / WhatsApp:</b><br><a id="showWaLink" href="https://wa.me/923317524646" target="_blank"><span id="showWa">0331 7524646</span> - Click to Chat</a><br><br>
+      <b>🕐 Timing:</b><br>Mon - Sat: 9 AM - 9 PM<br>Sun: 10 AM - 6 PM</p>
+    </div>
+    <form onsubmit="sendOrder(event)">
+      <h3 style="margin-bottom:15px">Order / Inquiry Form</h3>
+      <input type="text" id="name" placeholder="Your Name *" required>
+      <input type="tel" id="phone" placeholder="Phone / WhatsApp *" required>
+      <input type="email" id="email" placeholder="Email Address">
+      <select id="product"><option>Select Product</option><option>Mango Juice 200ml</option><option>Orange Juice 200ml</option><option>Cherry Juice 200ml</option><option>Mango 1 Litre</option><option>Mendoza Cola 300ml</option><option>Mendoza Malta 1 Litre</option><option>Pure Water 5 Litre</option><option>Milk 200ml</option></select>
+      <textarea id="msg" rows="3" placeholder="Your Message / Quantity"></textarea>
+      <button type="submit">Send Order on WhatsApp</button>
+      <p id="success" style="color:green;margin-top:10px;display:none">✅ Thank you! WhatsApp khul raha hai...</p>
+    </form>
+  </div>
+</div>
+<footer>
+  <b>MENDOZA Food & Beverages</b> | Home | About Us | Our Products | Contact<br>
+  Email: <span id="footEmail">mendozafoodandbeverages@gmail.com</span> | WhatsApp: <span id="footWa">0331 7524646</span> | Address: <span id="footAddr">Karachi, Pakistan</span><br>
+  © 2026 All Rights Reserved
+</footer>
+<div id="adminPanel">
+<button onclick="closeAdmin()" style="background:#333;color:#fff;border:none;padding:8px 15px;border-radius:20px;float:right">X Close</button>
+<h2>Admin Panel - Secure</h2>
+<p style="color:#666;margin:10px 0">Sirf Admin hi yahan changes kar sakta hai.</p>
 
-<div class="section" id="about"><h2>About Us</h2><p class="sub">Humari kahani - Purity se lekar aapke ghar tak</p><div class="about"><img src="https://images.unsplash.com/photo-1613478223719-2ab802602423?w=800&q=80"><div><h3>Why Mendoza Food & Beverages?</h3><p><b>Mendoza Food & Beverages</b> ek trusted brand hai jo fresh fruits, pure water aur high quality milk se bane products aap tak pahunchata hai.</p><p>Humara maqsad hai - Har ghar me sehatmand, taza aur sasta drink pahunche. Chhota pack ho ya bara family pack, quality me koi samjhota nahi.</p><div class="features"><span>✅ 100% Pure</span><span>✅ Fresh Fruits</span><span>✅ Best Price</span><span>✅ Fast Delivery</span></div></div></div></div>
-<div class="section" id="products"><h2>Our Products</h2><p class="sub">Total <span id="total2">25</span> Items - Select Category</p>
-<div class="filter"><button class="active" onclick="filterP('all',this)">All</button><button onclick="filterP('juice',this)">Tetra Pack Juice</button><button onclick="filterP('bottle',this)">Bottle Juice</button><button onclick="filterP('water',this)">Water</button><button onclick="filterP('milk',this)">Milk</button><button onclick="filterP('cold',this)">Cold Drink</button></div>
-<div class="grid" id="grid"></div></div>
-<div class="section" id="contact"><h2>Contact Us</h2><p class="sub">Order ke liye rabta karein</p><div class="contact-box"><div class="contact-info"><h3>🏢 Company Address</h3><p><b>Company Name:</b> Mendoza Food & Beverages<br><b>Address:</b> Karachi, Pakistan<br><br><b>📧 Email Address:</b><br>mendozafoodandbeverages@gmail.com<br><br><b>📞 Phone / WhatsApp:</b><br><a href="https://wa.me/923317524646" target="_blank">0331 7524646 - Click to Chat</a><br><br><b>🕐 Timing:</b><br>Mon - Sat: 9 AM - 9 PM<br>Sun: 10 AM - 6 PM</p></div><form onsubmit="sendOrder(event)"><h3>Order / Inquiry Form</h3><input type="text" id="name" placeholder="Your Name *" required><input type="tel" id="phone" placeholder="Phone / WhatsApp *" required><input type="email" id="email" placeholder="Email Address"><select id="product"><option>Select Product</option><option>Mango Juice 200ml</option><option>Orange Juice 200ml</option><option>Cherry Juice 200ml</option><option>Mango 1 Litre</option><option>Mendoza Cola 300ml</option><option>Mendoza Malta 1 Litre</option><option>Pure Water 5 Litre</option><option>Milk 200ml</option></select><textarea id="msg" rows="3" placeholder="Your Message / Quantity"></textarea><button type="submit">Send Order on WhatsApp</button><p id="success" style="color:green;margin-top:10px;display:none">✅ Thank you! WhatsApp khul raha hai...</p></form></div></div>
-<footer><b>MENDOZA Food & Beverages</b> | Home | About Us | Our Products | Contact<br>Email: mendozafoodandbeverages@gmail.com | WhatsApp: 0331 7524646 | Address: Karachi, Pakistan<br>© 2026 All Rights Reserved</footer>
+<h3>🖼️ Banner Image Badlein</h3>
+<p style="font-size:13px;color:#666">Neeche se apni Gallery se photo chunein, ya Banner ka Link paste karein.</p>
+<img id="bannerPreview" class="banner-preview" src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=800&q=80">
+<label>Gallery se Banner Upload karein</label>
+<input type="file" id="bannerFile" accept="image/*" onchange="uploadBanner(this)">
+<label>Ya Banner Image ka Link (URL) Paste karein</label>
+<input type="text" id="setBanner" placeholder="https://... image link">
+<button onclick="applyBannerUrl()" style="background:#1a7a00;color:#fff;border:none;padding:10px;width:100%;border-radius:10px;font-weight:700;margin-bottom:10px">Banner Link Lagayen</button>
+<button onclick="resetBanner()" style="background:#eee;border:none;padding:8px;width:100%;border-radius:10px">Purana Banner Wapis Layen</button>
 
+<h3>📞 Contact Settings</h3>
+<label>WhatsApp Number (92 se shuru, baghair + ke)</label>
+<input type="text" id="setWa" value="923317524646">
+<label>WhatsApp Display Number</label>
+<input type="text" id="setWaShow" value="0331 7524646">
+<label>Email Address</label>
+<input type="text" id="setEmail" value="mendozafoodandbeverages@gmail.com">
+<label>Address</label>
+<textarea id="setAddr" rows="2">Karachi, Pakistan</textarea>
+
+<h3>🔑 Admin Password Badlein</h3>
+<label>Naya Password</label>
+<input type="text" id="setPass" value="Mendoza123" placeholder="Naya Password likhein">
+<p style="font-size:12px;color:#888">Password yaad rakhein, isi se Admin khulega.</p>
+
+<button onclick="saveSettings()" style="background:#ff6a00;color:#fff;border:none;padding:13px;width:100%;border-radius:10px;font-weight:700;margin-top:10px">Save All Settings</button>
+<p id="saveMsg" style="color:green;margin-top:10px"></p>
+</div>
 <script>
-let isAdmin=false;
-let products=[];
-let defaultImg="https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=600&q=80";
-function getDefault(){
-return [
-{id:1,cat:'juice',name:'Mango Flavour',desc:'Juice Tetra Pack',size:'200ml',img:defaultImg},
-{id:2,cat:'juice',name:'Orange Flavour',desc:'Juice Tetra Pack',size:'200ml',img:defaultImg},
-{id:3,cat:'juice',name:'Cherry Flavour',desc:'Juice Tetra Pack',size:'200ml',img:defaultImg},
-{id:4,cat:'juice',name:'Mango',desc:'Family Pack',size:'1 Litre',img:defaultImg},
-{id:5,cat:'juice',name:'Mango',desc:'Family Pack',size:'1.5 Litre',img:defaultImg},
-{id:6,cat:'juice',name:'Orange',desc:'Family Pack',size:'1 Litre',img:defaultImg},
-{id:7,cat:'juice',name:'Orange',desc:'Family Pack',size:'1.5 Litre',img:defaultImg},
-{id:8,cat:'juice',name:'Cherry',desc:'Family Pack',size:'1 Litre',img:defaultImg},
-{id:9,cat:'juice',name:'Cherry',desc:'Family Pack',size:'1.5 Litre',img:defaultImg},
-{id:10,cat:'bottle',name:'Mango Bottle Juice',desc:'Fresh Mango',size:'250ml',img:defaultImg},
-{id:11,cat:'bottle',name:'Mango Bottle Juice',desc:'Fresh Mango',size:'1 Litre',img:defaultImg},
-{id:12,cat:'bottle',name:'Mango Bottle Juice',desc:'Fresh Mango',size:'1.5 Litre',img:defaultImg},
-{id:13,cat:'water',name:'Pure Water Bottle',desc:'100% Pure & Safe - Premium',size:'300ml',img:defaultImg},
-{id:14,cat:'water',name:'Pure Water Bottle',desc:'100% Pure & Safe - Premium',size:'1 Litre',img:defaultImg},
-{id:15,cat:'water',name:'Pure Water Bottle',desc:'100% Pure & Safe - Premium',size:'1.5 Litre',img:defaultImg},
-{id:16,cat:'water',name:'Pure Water Gallon',desc:'100% Pure & Safe - Premium',size:'5 Litre',img:defaultImg},
-{id:17,cat:'milk',name:'Milk Tetra Pack',desc:'Fresh Milk - Cow on Green Grass',size:'200ml',img:defaultImg},
-{id:18,cat:'milk',name:'Every Tea Time',desc:'Powder Sachets - Cow on Green Grass',size:'Sachets',img:defaultImg},
-{id:19,cat:'cold',name:'Mendoza Cola',desc:'Chilled Cola',size:'300ml',img:defaultImg},
-{id:20,cat:'cold',name:'Mendoza Cola',desc:'Chilled Cola',size:'1 Litre',img:defaultImg},
-{id:21,cat:'cold',name:'Mendoza Cola',desc:'Chilled Cola',size:'1.5 Litre',img:defaultImg},
-{id:22,cat:'cold',name:'Mendoza Lemon Fizz',desc:'Fresh Lemon',size:'300ml',img:defaultImg},
-{id:23,cat:'cold',name:'Mendoza Malta',desc:'Orange Soda - New PET Shape',size:'300ml',img:defaultImg},
-{id:24,cat:'cold',name:'Mendoza Malta',desc:'Orange Soda - New PET Shape',size:'1 Litre',img:defaultImg},
-{id:25,cat:'cold',name:'Mendoza Malta',desc:'Orange Soda - New PET Shape',size:'1.5 Litre',img:defaultImg},
-];}
-function load(){let s=localStorage.getItem('mendoza_products');products=s?JSON.parse(s):getDefault();render();}
-function save(){localStorage.setItem('mendoza_products',JSON.stringify(products));}
-function render(){
-let grid=document.getElementById('grid');grid.innerHTML='';
-products.forEach(p=>{
-let badge=p.cat==='juice'?'TETRA PACK':p.cat==='bottle'?'BOTTLE':p.cat==='water'?'PURE WATER':p.cat==='milk'?'MILK':'COLD DRINK';
-grid.innerHTML+=`<div class="card ${p.cat}"><img src="${p.img}"><div class="card-body"><span class="badge">${badge}</span><h3>${p.name}</h3><p>${p.desc}</p><div class="price">${p.size}</div><button onclick="window.open('https://wa.me/923317524646?text=I want ${encodeURIComponent(p.name+' '+p.size)}','_blank')">Order Now</button>${isAdmin?`<button class="editBtn" onclick="editProduct(${p.id})">✏️ Edit</button><button class="delBtn" onclick="deleteProduct(${p.id})">🗑️ Delete</button>`:''}</div></div>`;
-});
-document.getElementById('totalCount').innerText=products.length;
-document.getElementById('total2').innerText=products.length;
+let WA="923317524646";
+let ADMIN_PASS = localStorage.getItem('mendozaPass') || "Mendoza123";
+let DEFAULT_BANNER = "https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=1200&q=80";
+let currentBanner = localStorage.getItem('mendozaBanner') || DEFAULT_BANNER;
+document.getElementById('home').style.backgroundImage = "url('"+currentBanner+"')";
+document.getElementById('bannerPreview').src = currentBanner;
+document.getElementById('setBanner').value = (currentBanner===DEFAULT_BANNER ? "" : currentBanner);
+document.getElementById('setPass').value = ADMIN_PASS;
+
+function filterP(cat,btn){
+  document.querySelectorAll('.filter button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.card').forEach(c=>{
+    if(cat==='all' || c.classList.contains(cat)) c.style.display='block';
+    else c.style.display='none';
+  });
 }
-function filterP(cat,btn){document.querySelectorAll('.filter button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.querySelectorAll('.card').forEach(c=>{if(cat==='all'||c.classList.contains(cat))c.style.display='block';else c.style.display='none';});}
+function orderProduct(p){
+  document.getElementById('product').value=p;
+  document.getElementById('contact').scrollIntoView({behavior:'smooth'});
+  let m="Hello Mendoza! I want to order: "+p;
+  window.open("https://wa.me/"+WA+"?text="+encodeURIComponent(m),'_blank');
+}
+function sendOrder(e){
+  e.preventDefault();
+  let n=document.getElementById('name').value;
+  let ph=document.getElementById('phone').value;
+  let em=document.getElementById('email').value;
+  let pr=document.getElementById('product').value;
+  let ms=document.getElementById('msg').value;
+  let text="New Order - Mendoza:%0AName: "+n+"%0APhone: "+ph+"%0AEmail: "+em+"%0AProduct: "+pr+"%0AMessage: "+ms;
+  document.getElementById('success').style.display='block';
+  window.open("https://wa.me/"+WA+"?text="+text,'_blank');
+}
 function openAdmin(){
-let pass=prompt('Admin Password daalein');
-if(pass==='mendoza 1234' || pass==='mendoza1234'){isAdmin=true;document.getElementById('adminPanel').style.display='block';document.getElementById('adminPanel').scrollIntoView({behavior:'smooth'});render();alert('Admin ON ho gaya! Ab har product par Edit / Delete nazar aayega.');}
-else{alert('Galat password! Sahi password: mendoza 1234');}
+  let p = prompt("🔒 Admin Login\n\nAdmin Password likhein:");
+  if(p === null) return;
+  if(p === ADMIN_PASS){
+    document.getElementById('adminPanel').style.display='block';
+  } else {
+    alert("⛔ Wrong Password!\n\nAdmin ke ilawa koi bhi yahan password nahi daal sakta.\nSirf Admin hi is panel ko khol sakta hai.\n\nAapke Products aur Settings 100% Secure hain.");
+  }
 }
-function closeAdmin(){isAdmin=false;document.getElementById('adminPanel').style.display='none';render();}
-function previewImage(e){let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=function(){document.getElementById('previewImg').src=r.result;document.getElementById('previewImg').style.display='block';};r.readAsDataURL(f);}
-function saveProduct(){
-let name=document.getElementById('pName').value;let desc=document.getElementById('pDesc').value;let size=document.getElementById('pSize').value;let cat=document.getElementById('pCat').value;let img=document.getElementById('previewImg').src;let editId=document.getElementById('editId').value;
-if(!name||!size){alert('Naam aur Size zaroor likhein!');return;}
-if(!img||img.includes('preview')) img=defaultImg;
-if(editId){let p=products.find(x=>x.id==editId);p.name=name;p.desc=desc;p.size=size;p.cat=cat;if(document.getElementById('previewImg').src) p.img=document.getElementById('previewImg').src;}
-else{products.push({id:Date.now(),cat:cat,name:name,desc:desc||'',size:size,img:img});}
-save();render();cancelEdit();alert('✅ Product Save ho gaya!');
+function closeAdmin(){document.getElementById('adminPanel').style.display='none';}
+function uploadBanner(input){
+  let file = input.files[0];
+  if(!file) return;
+  let reader = new FileReader();
+  reader.onload = function(e){
+    currentBanner = e.target.result;
+    document.getElementById('home').style.backgroundImage = "url('"+currentBanner+"')";
+    document.getElementById('bannerPreview').src = currentBanner;
+    document.getElementById('setBanner').value = "";
+    alert("✅ Banner Photo select ho gayi! Ab neeche Save All Settings dabayein.");
+  };
+  reader.readAsDataURL(file);
 }
-function editProduct(id){let p=products.find(x=>x.id==id);document.getElementById('pName').value=p.name;document.getElementById('pDesc').value=p.desc;document.getElementById('pSize').value=p.size;document.getElementById('pCat').value=p.cat;document.getElementById('editId').value=p.id;document.getElementById('previewImg').src=p.img;document.getElementById('previewImg').style.display='block';document.getElementById('adminPanel').scrollIntoView({behavior:'smooth'});}
-function deleteProduct(id){if(confirm('Kya aap is product ko delete karna chahte hain?')){products=products.filter(x=>x.id!=id);save();render();}}
-function cancelEdit(){document.getElementById('pName').value='';document.getElementById('pDesc').value='';document.getElementById('pSize').value='';document.getElementById('editId').value='';document.getElementById('previewImg').style.display='none';document.getElementById('pImage').value='';}
-function resetAll(){if(confirm('Sab kuch wapas original 25 par kar dein?')){localStorage.removeItem('mendoza_products');products=getDefault();save();render();}}
-function sendOrder(e){e.preventDefault();var text="Hello Mendoza! Name: "+document.getElementById('name').value+" | Phone: "+document.getElementById('phone').value+" | Product: "+document.getElementById('product').value+" | Message: "+document.getElementById('msg').value;document.getElementById('success').style.display='block';window.open('https://wa.me/923317524646?text='+encodeURIComponent(text),'_blank');}
-load();
+function applyBannerUrl(){
+  let url = document.getElementById('setBanner').value.trim();
+  if(!url){ alert("Pehle Banner ka Link paste karein"); return; }
+  currentBanner = url;
+  document.getElementById('home').style.backgroundImage = "url('"+currentBanner+"')";
+  document.getElementById('bannerPreview').src = currentBanner;
+  alert("✅ Banner Link lag gaya! Ab Save All Settings dabayein.");
+}
+function resetBanner(){
+  currentBanner = DEFAULT_BANNER;
+  document.getElementById('home').style.backgroundImage = "url('"+currentBanner+"')";
+  document.getElementById('bannerPreview').src = currentBanner;
+  document.getElementById('setBanner').value = "";
+  alert("Purana Banner wapis aa gaya! Save karein.");
+}
+function saveSettings(){
+  WA=document.getElementById('setWa').value;
+  let show=document.getElementById('setWaShow').value;
+  let email=document.getElementById('setEmail').value;
+  let addr=document.getElementById('setAddr').value;
+  ADMIN_PASS=document.getElementById('setPass').value || "Mendoza123";
+  document.getElementById('waFloat').href="https://wa.me/"+WA;
+  document.getElementById('navWaBtn').href="https://wa.me/"+WA;
+  document.getElementById('showWa').innerText=show;
+  document.getElementById('showWaLink').href="https://wa.me/"+WA;
+  document.getElementById('showEmail').innerText=email;
+  document.getElementById('showAddress').innerText=addr;
+  document.getElementById('footEmail').innerText=email;
+  document.getElementById('footWa').innerText=show;
+  document.getElementById('footAddr').innerText=addr;
+  localStorage.setItem('mendozaContact',JSON.stringify({wa:WA,show:show,email:email,addr:addr}));
+  localStorage.setItem('mendozaPass', ADMIN_PASS);
+  localStorage.setItem('mendozaBanner', currentBanner);
+  document.getElementById('saveMsg').innerText="✅ Saved! Banner + Contact + Password sab save ho gaya.";
+}
+let saved=JSON.parse(localStorage.getItem('mendozaContact')||'null');
+if(saved){
+  document.getElementById('setWa').value=saved.wa;
+  document.getElementById('setWaShow').value=saved.show;
+  document.getElementById('setEmail').value=saved.email;
+  document.getElementById('setAddr').value=saved.addr;
+  WA=saved.wa;
+  document.getElementById('waFloat').href="https://wa.me/"+saved.wa;
+  document.getElementById('navWaBtn').href="https://wa.me/"+saved.wa;
+  document.getElementById('showWa').innerText=saved.show;
+  document.getElementById('showWaLink').href="https://wa.me/"+saved.wa;
+  document.getElementById('showEmail').innerText=saved.email;
+  document.getElementById('showAddress').innerText=saved.addr;
+  document.getElementById('footEmail').innerText=saved.email;
+  document.getElementById('footWa').innerText=saved.show;
+  document.getElementById('footAddr').innerText=saved.addr;
+}
 </script>
 </body>
 </html>
