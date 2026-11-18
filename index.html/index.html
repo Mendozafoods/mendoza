@@ -50,7 +50,7 @@ header{background:#fff;display:flex;justify-content:space-between;align-items:ce
 .group-badge{padding:2px 8px;border-radius:10px;color:#fff;font-size:11px;font-weight:800}
 .wa-float{position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;text-decoration:none;z-index:50}
 footer{background:#222;color:#fff;text-align:center;padding:20px;font-size:14px;line-height:1.6}
-.check-list label{display:block;font-size:13px;padding:5px 0;text-align:left}
+.contact-box{background:#fff;border-radius:15px;padding:20px;text-align:center;box-shadow:0 3px 12px rgba(0,0,0,.08)}
 </style>
 </head>
 <body>
@@ -61,17 +61,18 @@ footer{background:#222;color:#fff;text-align:center;padding:20px;font-size:14px;
 <a href="#" onclick="toggleMenu()">🏠 Home</a>
 <a href="#beverages" onclick="toggleMenu()">🥤 Beverages</a>
 <a href="#confectionery" onclick="toggleMenu()">🍬 Mendoza Confectionery</a>
-<a href="https://wa.me/923317524646">💬 WhatsApp Order</a>
+<a href="#contact" onclick="toggleMenu()">📞 Contact Us</a>
+<a href="https://wa.me/923317524646" id="sidebarWa">💬 WhatsApp Order</a>
 <button onclick="openLogin();toggleMenu()">🔐 Admin Panel</button>
 <button onclick="toggleMenu()" style="color:red">✖ Close</button>
-<p style="font-size:12px;color:#888;margin-top:15px">Mendoza Food & Beverages<br>0331 7524646</p>
+<p style="font-size:12px;color:#888;margin-top:15px">Mendoza Food & Beverages<br><span class="companyPhone">0331 7524646</span><br><span class="companyEmail">info@mendozafoods.com</span></p>
 </div>
 
 <header>
 <button class="menu-btn" onclick="toggleMenu()">☰</button>
 <div class="logo"><span>MENDOZA</span><br><span>Food & Beverages</span></div>
 <div style="display:flex;gap:6px">
-<a class="wa-btn" href="https://wa.me/923317524646">WhatsApp</a>
+<a class="wa-btn" href="https://wa.me/923317524646" id="headerWa">WhatsApp</a>
 <button class="admin-btn" onclick="openLogin()" id="adminBtn">Admin</button>
 </div>
 </header>
@@ -82,7 +83,7 @@ footer{background:#222;color:#fff;text-align:center;padding:20px;font-size:14px;
 <p>200ml Tetra Pack to 5 Litre Water - Mango, Orange, Cherry, Milk, Cola & Malta.</p>
 <a href="#beverages" class="btn-orange">View Beverages 🥤</a><br>
 <a href="#confectionery" class="btn-white">View Confectionery 🍬</a><br>
-<a href="https://wa.me/923317524646" class="btn-white">WhatsApp: 0331 7524646</a>
+<a href="https://wa.me/923317524646" class="btn-white" id="heroWa">WhatsApp: <span class="companyPhone">0331 7524646</span></a>
 <p style="margin-top:15px;font-weight:700">⭐ <span id="totalCount">0</span> Products | ⭐ Best Quality | ⭐ Fast Delivery</p>
 </div>
 
@@ -100,12 +101,35 @@ footer{background:#222;color:#fff;text-align:center;padding:20px;font-size:14px;
 <div class="bev-bg" id="beverages"><div class="section"><div class="sec-title">🥤 Mendoza Beverages</div><p style="text-align:center;color:#666;margin-bottom:15px"><span id="bevCount">0</span> Items</p><div class="grid" id="bevGrid"></div></div></div>
 <div class="conf-bg" id="confectionery"><div class="section"><div class="sec-title">🍬 Mendoza Confectionery</div><p style="text-align:center;color:#666;margin-bottom:15px"><span id="confCount">0</span> Items</p><div class="grid" id="confGrid"></div></div></div>
 
-<!-- ADMIN PANEL - PROFESSIONAL ENGLISH -->
+<div class="section" id="contact">
+<div class="contact-box">
+<h2 style="margin-bottom:10px">📞 Contact Us</h2>
+<p style="font-size:16px;line-height:1.8">
+📧 Email: <b class="companyEmail">info@mendozafoods.com</b><br>
+📞 Phone: <b class="companyPhone">0331 7524646</b><br>
+📍 Address: <b class="companyAddress">Mendoza Food & Beverages, Karachi, Sindh, Pakistan</b><br>
+</p>
+<a href="https://wa.me/923317524646" class="btn-orange" id="contactWa" style="margin-top:10px">Chat on WhatsApp</a>
+</div>
+</div>
+
 <div class="admin-panel" id="adminPanel">
 <h2>🔐 Admin Panel - Private & Professional</h2>
-<p style="text-align:center;color:#666;font-size:13px;margin-bottom:15px">Only Admin can see this section. Customers cannot see it.</p>
 
-<!-- PASSWORD -->
+<div class="admin-card" style="border:2px solid #ff6a00">
+<h3>🏢 Company Info - Edit</h3>
+<p style="font-size:13px;color:#666">Yahan se Email, Phone aur Address badlein, poori website par khud update ho jayega.</p>
+<label style="font-size:13px">Company Email</label>
+<input id="compEmail" placeholder="e.g. info@mendozafoods.com">
+<label style="font-size:13px">Phone / WhatsApp Number (92 ke saath - e.g. 923317524646)</label>
+<input id="compPhone" placeholder="e.g. 923317524646">
+<label style="font-size:13px">Display Phone (Jaisa dikhana hai)</label>
+<input id="compPhoneDisplay" placeholder="e.g. 0331 7524646">
+<label style="font-size:13px">Company Address</label>
+<textarea id="compAddress" rows="2" placeholder="Full Company Address"></textarea>
+<button class="btn-orange2" onclick="saveCompanyInfo()">Save Company Info ✅</button>
+</div>
+
 <div class="admin-card" style="border:2px solid #ff6a00">
 <h3>🔑 Change Password</h3>
 <input type="password" id="oldPass" placeholder="Old Password">
@@ -115,15 +139,11 @@ footer{background:#222;color:#fff;text-align:center;padding:20px;font-size:14px;
 <button style="background:#eee;color:#000" onclick="resetPassword()">Forgot Password? Reset</button>
 </div>
 
-<!-- DISTRIBUTOR -->
 <div class="admin-card" style="border:2px solid #2563eb">
 <h3>🚚 Distributor Management</h3>
 <input id="dName" placeholder="Distributor Name *">
 <input id="dPhone" placeholder="Phone / WhatsApp">
-<select id="dProvince" onchange="updateDistCities()">
-<option value="">Select Province *</option>
-<option>Sindh</option><option>Punjab</option><option>Balochistan</option><option>Khyber Pakhtunkhwa</option><option>Gilgit-Baltistan</option><option>Azad Kashmir</option><option>Islamabad Capital Territory</option>
-</select>
+<select id="dProvince"><option value="">Select Province *</option><option>Sindh</option><option>Punjab</option><option>Balochistan</option><option>Khyber Pakhtunkhwa</option><option>Gilgit-Baltistan</option><option>Azad Kashmir</option><option>Islamabad Capital Territory</option></select>
 <input id="dCity" placeholder="City - Where Distributor Works *">
 <input id="dArea" placeholder="Area / Territory">
 <label style="font-size:13px">Distributor Photo</label><input type="file" id="dPhoto" accept="image/*">
@@ -131,10 +151,9 @@ footer{background:#222;color:#fff;text-align:center;padding:20px;font-size:14px;
 <button class="btn-blue" onclick="addDistributor()">Save Distributor ✅</button>
 <input id="dSearch" placeholder="🔍 Search Distributor - Name / Province / City" oninput="renderDistributors()" style="margin-top:12px">
 <div id="distributorList"></div>
-<button class="btn-dark" onclick="downloadDistributors()">⬇ Download Distributors List (CSV)</button>
+<button class="btn-dark" onclick="downloadDistributors()">⬇ Download Distributors List (PDF)</button>
 </div>
 
-<!-- CUSTOMER -->
 <div class="admin-card">
 <h3>👤 Customer Management</h3>
 <input id="cShop" placeholder="Shop Registered Name *">
@@ -142,17 +161,16 @@ footer{background:#222;color:#fff;text-align:center;padding:20px;font-size:14px;
 <input id="cPhone" placeholder="Phone / WhatsApp">
 <select id="cProvince"><option value="">Select Province</option><option>Sindh</option><option>Punjab</option><option>Balochistan</option><option>Khyber Pakhtunkhwa</option><option>Gilgit-Baltistan</option><option>Azad Kashmir</option><option>Islamabad Capital Territory</option></select>
 <input id="cCity" placeholder="City">
-<input id="cDist" placeholder="Distributor Name (Link Customer to Distributor)">
+<input id="cDist" placeholder="Distributor Name">
 <label style="font-size:13px">Customer Photo</label><input type="file" id="cPhoto" accept="image/*">
 <label style="font-size:13px">Shop Photo</label><input type="file" id="cShopPhoto" accept="image/*">
 <label style="font-size:13px">Agreement Documents</label><input type="file" id="cDoc" accept="image/*,.pdf">
 <button class="btn-green" onclick="addCustomer()">Save Customer ✅</button>
 <input id="cSearch" placeholder="🔍 Search Customer - Name / ID / Shop" oninput="renderCustomers()" style="margin-top:12px">
 <div id="customerList"></div>
-<button class="btn-dark" onclick="downloadCustomers()">⬇ Download Customers Data (CSV)</button>
+<button class="btn-dark" onclick="downloadCustomers()">⬇ Download Customers Data (PDF)</button>
 </div>
 
-<!-- EMPLOYEE -->
 <div class="admin-card">
 <h3>👨‍💼 Employee Management</h3>
 <input id="eName" placeholder="Employee Name *">
@@ -168,29 +186,24 @@ footer{background:#222;color:#fff;text-align:center;padding:20px;font-size:14px;
 <div id="employeeList"></div>
 </div>
 
-<!-- GROUP PRODUCTS ASSIGNMENT -->
 <div class="admin-card" style="border:2px solid #16a34a">
 <h3>📦 Group Wise Products Assignment</h3>
-<p style="font-size:13px;color:#666">Select Group and assign products. Admin can Edit / Delete assigned products.</p>
 <select id="gGroup"><option value="Blue">🔵 Blue Group</option><option value="Red">🔴 Red Group</option><option value="Pink">🩷 Pink Group</option><option value="Green">🟢 Green Group</option><option value="Yellow">🟡 Yellow Group</option></select>
-<input id="gProduct" placeholder="Product Name for this Group - e.g. Mango Juice">
+<input id="gProduct" placeholder="Product Name for this Group">
 <input id="gPrice" type="number" placeholder="Rate">
-<input id="gQty" placeholder="Quantity / Target - e.g. 100 Boxes">
+<input id="gQty" placeholder="Quantity / Target">
 <button class="btn-green" onclick="addGroupProduct()">Assign Product to Group ✅</button>
 <div id="groupProductList" style="margin-top:10px"></div>
 </div>
 
-<!-- MONTHLY STATEMENT -->
 <div class="admin-card" style="border:2px solid #7c3aed">
 <h3>📄 Monthly Statement - PDF Download</h3>
-<p style="font-size:13px;color:#666">Select Employee and Month to download Monthly Statement PDF.</p>
 <select id="sEmployee"><option value="">Select Employee</option></select>
 <input type="month" id="sMonth">
-<textarea id="sNote" placeholder="Monthly Sales / Notes - e.g. Total Sales: Rs. 50000, Recovery: Rs. 45000"></textarea>
+<textarea id="sNote" placeholder="Monthly Sales / Notes"></textarea>
 <button class="btn-dark" onclick="downloadStatement()">⬇ Download Monthly Statement PDF</button>
-<button class="btn-blue" onclick="downloadEmployeeList()">⬇ Download All Employees Data (CSV)</button>
+<button class="btn-blue" onclick="downloadEmployeeList()">⬇ Download All Employees Data (PDF)</button>
 </div>
-
 </div>
 
 <div id="loginBox"><div class="login-card"><h2>🔐 Admin Login</h2>
@@ -199,15 +212,42 @@ footer{background:#222;color:#fff;text-align:center;padding:20px;font-size:14px;
 <button onclick="doLogin()">Login</button>
 <button onclick="closeLogin()" style="background:#eee;color:#000;margin-top:8px">Close</button>
 <p id="loginMsg" style="color:red;font-size:13px;margin-top:8px"></p>
-<p style="font-size:12px;color:#999">First Time Password: <b>mendoza123</b></p>
 </div></div>
 
-<a class="wa-float" href="https://wa.me/923317524646">💬</a>
-<footer><b>MENDOZA Food & Beverages</b><br>WhatsApp: 0331 7524646<br>Fresh, Pure & Tasty - Professional Distribution System</footer>
+<a class="wa-float" href="https://wa.me/923317524646" id="floatWa">💬</a>
+<footer><b>Mendoza Food & Beverages</b><br>
+📧 <span class="companyEmail">info@mendozafoods.com</span> | 📞 <span class="companyPhone">0331 7524646</span><br>
+📍 <span class="companyAddress">Mendoza Food & Beverages, Karachi, Sindh, Pakistan</span><br>
+Fresh, Pure & Tasty - Professional Distribution System</footer>
 
 <script>
 let isAdmin=false;
 function getPass(){return localStorage.getItem('mendoza_admin_pass') || 'mendoza123'}
+function getCompanyInfo(){
+return JSON.parse(localStorage.getItem('mendoza_company')||'null') || {email:'info@mendozafoods.com', phone:'923317524646', phoneDisplay:'0331 7524646', address:'Mendoza Food & Beverages, Karachi, Sindh, Pakistan'}
+}
+function applyCompanyInfo(){
+let c=getCompanyInfo();
+document.querySelectorAll('.companyEmail').forEach(e=>e.innerText=c.email);
+document.querySelectorAll('.companyPhone').forEach(e=>e.innerText=c.phoneDisplay);
+document.querySelectorAll('.companyAddress').forEach(e=>e.innerText=c.address);
+let wa='https://wa.me/'+c.phone;
+['headerWa','heroWa','sidebarWa','contactWa','floatWa'].forEach(id=>{let el=document.getElementById(id); if(el) el.href=wa});
+document.getElementById('compEmail').value=c.email;
+document.getElementById('compPhone').value=c.phone;
+document.getElementById('compPhoneDisplay').value=c.phoneDisplay;
+document.getElementById('compAddress').value=c.address;
+}
+function saveCompanyInfo(){
+let email=document.getElementById('compEmail').value.trim();
+let phone=document.getElementById('compPhone').value.trim();
+let phoneDisplay=document.getElementById('compPhoneDisplay').value.trim();
+let address=document.getElementById('compAddress').value.trim();
+if(!email||!phone){alert('Email and Phone Required');return}
+localStorage.setItem('mendoza_company', JSON.stringify({email,phone,phoneDisplay:phoneDisplay||phone,address}));
+applyCompanyInfo();
+alert('Company Info Saved!');
+}
 let products=JSON.parse(localStorage.getItem('mendoza_products')||'null')||[
 {name:"Mango Juice 200ml",price:50,pack:"Box = 24 Pcs",cat:"juice",img:"https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=400"},
 {name:"Mendoza Water 5 Litre",price:220,pack:"1 Bottle",cat:"juice",img:"https://images.unsplash.com/photo-1523362628745-0c100150b504?w=400"},
@@ -220,19 +260,18 @@ let groupProducts=JSON.parse(localStorage.getItem('mendoza_group_products')||'[]
 function toggleMenu(){document.getElementById('sidebar').classList.toggle('open');document.getElementById('overlay').style.display=document.getElementById('sidebar').classList.contains('open')?'block':'none'}
 function togglePass(){let x=document.getElementById('adminPass');x.type=x.type==='password'?'text':'password'}
 function saveP(){localStorage.setItem('mendoza_products',JSON.stringify(products))}
-function updateDistCities(){}
 function render(){
 let bev=document.getElementById('bevGrid'),conf=document.getElementById('confGrid');bev.innerHTML='';conf.innerHTML='';let b=0,c=0;
 products.forEach((p,i)=>{let d=document.createElement('div');d.className='card';d.innerHTML=`<img src="${p.img}"><h3>${p.name}</h3><div class="price">Rs. ${p.price}</div><div class="pack">${p.pack}</div><button onclick="order('${p.name}')">Order Now</button>${isAdmin?`<div style="display:flex;gap:5px;justify-content:center;margin-top:8px"><button style="background:#ff9a00" onclick="editProduct(${i})">Edit</button><button style="background:#e11d48" onclick="delProduct(${i})">Delete</button></div>`:''}`;if(p.cat==='confectionery'){conf.appendChild(d);c++}else{bev.appendChild(d);b++}});
 document.getElementById('totalCount').innerText=products.length;document.getElementById('bevCount').innerText=b;document.getElementById('confCount').innerText=c;
 }
-function order(n){window.open('https://wa.me/923317524646?text='+encodeURIComponent('Hello! I want to order '+n),'_blank')}
+function order(n){let c=getCompanyInfo();window.open('https://wa.me/'+c.phone+'?text='+encodeURIComponent('Hello! I want to order '+n),'_blank')}
 function openLogin(){if(isAdmin){logout();return}document.getElementById('loginBox').style.display='flex'}
 function closeLogin(){document.getElementById('loginBox').style.display='none'}
 function doLogin(){
 let entered=document.getElementById('adminPass').value.trim();
-if(entered===getPass()){isAdmin=true;closeLogin();document.getElementById('adminBtn').innerText='Logout';document.getElementById('showAddBtn').style.display='block';document.getElementById('addBox').style.display='block';document.getElementById('adminPanel').style.display='block';render();renderCustomers();renderEmployees();renderDistributors();renderGroupProducts();updateStatementDropdown();alert('Welcome Admin!');}
-else{document.getElementById('loginMsg').innerText='Wrong Password! First password is mendoza123'}
+if(entered===getPass()){isAdmin=true;closeLogin();document.getElementById('adminBtn').innerText='Logout';document.getElementById('showAddBtn').style.display='block';document.getElementById('addBox').style.display='block';document.getElementById('adminPanel').style.display='block';render();renderCustomers();renderEmployees();renderDistributors();renderGroupProducts();updateStatementDropdown();applyCompanyInfo();alert('Welcome Admin!');}
+else{document.getElementById('loginMsg').innerText='Wrong Password!'}
 }
 function logout(){isAdmin=false;document.getElementById('adminBtn').innerText='Admin';document.getElementById('showAddBtn').style.display='none';document.getElementById('addBox').style.display='none';document.getElementById('adminPanel').style.display='none';render()}
 function changePassword(){
@@ -240,15 +279,14 @@ let oldP=document.getElementById('oldPass').value.trim();let newP=document.getEl
 if(oldP!==getPass()){alert('Old Password is wrong!');return}
 if(newP.length<4){alert('New Password must be at least 4 characters');return}
 if(newP!==confP){alert('New Password does not match');return}
-localStorage.setItem('mendoza_admin_pass',newP);alert('Password Changed Successfully! New Password: '+newP);
+localStorage.setItem('mendoza_admin_pass',newP);alert('Password Changed! New Password: '+newP);
 document.getElementById('oldPass').value='';document.getElementById('newPass').value='';document.getElementById('confirmPass').value='';
 }
-function resetPassword(){if(confirm('Reset Password to mendoza123?')){localStorage.setItem('mendoza_admin_pass','mendoza123');alert('Password Reset Done! Now login with mendoza123')}}
+function resetPassword(){if(confirm('Reset Password to mendoza123?')){localStorage.setItem('mendoza_admin_pass','mendoza123');alert('Password Reset Done!')}}
 function addProduct(){let name=document.getElementById('pName').value,price=document.getElementById('pPrice').value,pack=document.getElementById('pPack').value,cat=document.getElementById('pCat').value;if(!name||!price){alert('Name and Rate Required');return}let f=document.getElementById('pImg').files[0];if(f){let r=new FileReader();r.onload=e=>{products.push({name,price,pack,cat,img:e.target.result});saveP();render();alert('Product Added!')};r.readAsDataURL(f)}else{products.push({name,price,pack,cat,img:"https://images.unsplash.com/photo-1582058091505-f6b585e55aa7?w=400"});saveP();render();alert('Product Added!')}}
 function delProduct(i){if(confirm('Delete?')){products.splice(i,1);saveP();render()}}
 function editProduct(i){let p=products[i];let n=prompt('Name:',p.name);if(n)p.name=n;let pr=prompt('Rate:',p.price);if(pr)p.price=pr;let pk=prompt('Packing:',p.pack);if(pk)p.pack=pk;saveP();render()}
 function readFile(id,cb){let f=document.getElementById(id).files[0];if(!f){cb('');return}let r=new FileReader();r.onload=e=>cb(e.target.result);r.readAsDataURL(f)}
-// DISTRIBUTOR
 function addDistributor(){
 let name=document.getElementById('dName').value, phone=document.getElementById('dPhone').value, prov=document.getElementById('dProvince').value, city=document.getElementById('dCity').value, area=document.getElementById('dArea').value;
 if(!name||!prov||!city){alert('Distributor Name, Province and City Required');return}
@@ -264,8 +302,6 @@ distributors.forEach((d,i)=>{if(q && !(d.name.toLowerCase().includes(q)||d.prov.
 list.innerHTML+=`<div class="data-row"><img src="${d.photo||'https://via.placeholder.com/60'}"><div class="info"><b>${d.name}</b> (${d.id})<br>📍 ${d.prov} - ${d.city} ${d.area?'- '+d.area:''}<br>📞 ${d.phone||''} ${d.doc?`<br><a href="${d.doc}" target="_blank">📄 Agreement Document</a>`:''}</div><button class="btn-red" onclick="delDistributor(${i})">Del</button></div>`});
 }
 function delDistributor(i){if(confirm('Delete Distributor?')){distributors.splice(i,1);localStorage.setItem('mendoza_distributors',JSON.stringify(distributors));renderDistributors()}}
-function downloadDistributors(){downloadCSV('distributors.csv', distributors.map(d=>[d.id,d.name,d.phone,d.prov,d.city,d.area]))}
-// CUSTOMER
 function addCustomer(){
 let shop=document.getElementById('cShop').value, name=document.getElementById('cName').value, phone=document.getElementById('cPhone').value, prov=document.getElementById('cProvince').value, city=document.getElementById('cCity').value, dist=document.getElementById('cDist').value;
 if(!shop||!name){alert('Shop Name and Customer Name Required');return}
@@ -281,8 +317,6 @@ customers.forEach((cu,i)=>{if(q && !(cu.name.toLowerCase().includes(q)||cu.shop.
 list.innerHTML+=`<div class="data-row"><img src="${cu.photo||'https://via.placeholder.com/60'}"><div class="info"><b>${cu.shop}</b> (${cu.id})<br>${cu.name} | ${cu.prov||''} - ${cu.city||''}<br>Distributor: ${cu.dist||'-'} | 📞 ${cu.phone||''}<br>${cu.shopPhoto?`<a href="${cu.shopPhoto}" target="_blank">🏪 Shop Photo</a> `:''}${cu.doc?`<a href="${cu.doc}" target="_blank">📄 Agreement</a>`:''}</div><button class="btn-red" onclick="delCustomer(${i})">Del</button></div>`});
 }
 function delCustomer(i){if(confirm('Delete Customer?')){customers.splice(i,1);localStorage.setItem('mendoza_customers',JSON.stringify(customers));renderCustomers()}}
-function downloadCustomers(){downloadCSV('customers.csv', customers.map(c=>[c.id,c.shop,c.name,c.phone,c.prov,c.city,c.dist]))}
-// EMPLOYEE
 function addEmployee(){
 let name=document.getElementById('eName').value, post=document.getElementById('ePost').value, group=document.getElementById('eGroup').value, prov=document.getElementById('eProvince').value, city=document.getElementById('eCity').value, phone=document.getElementById('ePhone').value;
 if(!name||!city){alert('Name and Duty City Required');return}
@@ -301,7 +335,6 @@ if(q && !(em.name.toLowerCase().includes(q)||em.id.toLowerCase().includes(q))) r
 list.innerHTML+=`<div class="data-row"><img src="${em.photo||'https://via.placeholder.com/60'}"><div class="info"><b>${em.name}</b> (${em.id})<br>${em.post||''} | <span class="group-badge" style="background:${colors[em.group]}">${em.group} Group</span><br>📍 Duty: ${em.prov||''} - ${em.city} | 📞 ${em.phone||''}<br><b>Assigned Products:</b> ${assigned}<br>${em.doc?`<a href="${em.doc}" target="_blank">📄 Degree / Document</a>`:''}</div><button class="btn-red" onclick="delEmployee(${i})">Del</button></div>`});
 }
 function delEmployee(i){if(confirm('Delete Employee?')){employees.splice(i,1);localStorage.setItem('mendoza_employees',JSON.stringify(employees));renderEmployees();updateStatementDropdown()}}
-// GROUP PRODUCTS
 function addGroupProduct(){
 let group=document.getElementById('gGroup').value, product=document.getElementById('gProduct').value, price=document.getElementById('gPrice').value, qty=document.getElementById('gQty').value;
 if(!product){alert('Product Name Required');return}
@@ -318,12 +351,27 @@ list.innerHTML+=`<div class="data-row"><div class="info"><span class="group-badg
 }
 function editGroupProduct(i){let g=groupProducts[i];let n=prompt('Product Name:',g.product);if(n)g.product=n;let p=prompt('Rate:',g.price);if(p)g.price=p;let q=prompt('Qty/Target:',g.qty);if(q)g.qty=q;localStorage.setItem('mendoza_group_products',JSON.stringify(groupProducts));renderGroupProducts();renderEmployees();}
 function delGroupProduct(i){if(confirm('Delete this assigned product? Only Admin can delete.')){groupProducts.splice(i,1);localStorage.setItem('mendoza_group_products',JSON.stringify(groupProducts));renderGroupProducts();renderEmployees();}}
-// DOWNLOAD HELPERS
-function downloadCSV(filename, rows){
-let csv='ID,Name,Phone,Province,City,Extra\n'+rows.map(r=>r.join(',')).join('\n');
-let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download=filename;a.click();
+function openPDF(title, headers, rowsHtml){
+let c=getCompanyInfo();
+let w=window.open('','_blank');
+w.document.write(`<html><head><title>${title}</title><style>body{font-family:Arial;padding:20px}h1{color:#ff6a00;margin:0}h2{margin:10px 0}table{width:100%;border-collapse:collapse;margin-top:15px}td,th{border:1px solid #ddd;padding:8px;text-align:left;font-size:13px}th{background:#ff6a00;color:#fff}</style></head><body><h1>Mendoza Food & Beverages</h1><p>${c.email} | ${c.phoneDisplay} | ${c.address}</p><h2>${title}</h2><p>Total: ${rowsHtml.split('<tr>').length-1} Records | Date: ${new Date().toLocaleDateString()}</p><table><tr>${headers.map(h=>`<th>${h}</th>`).join('')}</tr>${rowsHtml}</table><p style="margin-top:30px">Signature: ____________________ &nbsp;&nbsp; Date: ______________</p><p>Generated by Mendoza Professional System</p><script>window.print()<\/script></body></html>`);
+w.document.close();
 }
-function downloadEmployeeList(){downloadCSV('employees.csv', employees.map(e=>[e.id,e.name,e.phone,e.prov,e.city,e.group+'-'+e.post]))}
+function downloadDistributors(){
+if(distributors.length===0){alert('No Distributors Data!');return}
+let rows=distributors.map(d=>`<tr><td>${d.id}</td><td>${d.name}</td><td>${d.phone||''}</td><td>${d.prov}</td><td>${d.city}</td><td>${d.area||''}</td></tr>`).join('');
+openPDF('Distributors List', ['ID','Name','Phone','Province','City','Area'], rows);
+}
+function downloadCustomers(){
+if(customers.length===0){alert('No Customers Data!');return}
+let rows=customers.map(c=>`<tr><td>${c.id}</td><td>${c.shop}</td><td>${c.name}</td><td>${c.phone||''}</td><td>${c.prov||''}</td><td>${c.city||''}</td><td>${c.dist||''}</td></tr>`).join('');
+openPDF('Customers List', ['ID','Shop Name','Customer Name','Phone','Province','City','Distributor'], rows);
+}
+function downloadEmployeeList(){
+if(employees.length===0){alert('No Employees Data!');return}
+let rows=employees.map(e=>`<tr><td>${e.id}</td><td>${e.name}</td><td>${e.post||''}</td><td>${e.group} Group</td><td>${e.prov||''} - ${e.city}</td><td>${e.phone||''}</td></tr>`).join('');
+openPDF('Employees List', ['ID','Name','Designation','Group','Duty City','Phone'], rows);
+}
 function updateStatementDropdown(){
 let sel=document.getElementById('sEmployee');sel.innerHTML='<option value="">Select Employee</option>';
 employees.forEach(e=>{sel.innerHTML+=`<option value="${e.id}">${e.name} (${e.id}) - ${e.group} Group</option>`});
@@ -333,11 +381,12 @@ let empId=document.getElementById('sEmployee').value;let month=document.getEleme
 if(!empId||!month){alert('Please Select Employee and Month');return}
 let em=employees.find(e=>e.id===empId);
 let assigned=groupProducts.filter(g=>g.group===em.group).map(g=>g.product+' - Rs.'+g.price).join('<br>')||'No Products Assigned';
+let c=getCompanyInfo();
 let w=window.open('','_blank');
-w.document.write(`<html><head><title>Monthly Statement - ${em.name}</title><style>body{font-family:Arial;padding:30px}h1{color:#ff6a00}table{width:100%;border-collapse:collapse;margin-top:15px}td,th{border:1px solid #ddd;padding:10px;text-align:left}</style></head><body><h1>MENDOZA Food & Beverages</h1><h2>Monthly Statement</h2><table><tr><th>Employee Name</th><td>${em.name}</td></tr><tr><th>Employee ID</th><td>${em.id}</td></tr><tr><th>Designation</th><td>${em.post||''}</td></tr><tr><th>Group</th><td>${em.group} Group</td></tr><tr><th>Duty City</th><td>${em.prov||''} - ${em.city}</td></tr><tr><th>Month</th><td>${month}</td></tr><tr><th>Assigned Products</th><td>${assigned}</td></tr><tr><th>Sales / Notes</th><td>${note||'-'}</td></tr></table><p style="margin-top:30px">Signature: ____________________ &nbsp;&nbsp; Date: ______________</p><p>Generated by Mendoza Professional System</p><script>window.print()<\/script></body></html>`);
+w.document.write(`<html><head><title>Monthly Statement - ${em.name}</title><style>body{font-family:Arial;padding:30px}h1{color:#ff6a00}table{width:100%;border-collapse:collapse;margin-top:15px}td,th{border:1px solid #ddd;padding:10px;text-align:left}</style></head><body><h1>Mendoza Food & Beverages</h1><p>${c.email} | ${c.phoneDisplay} | ${c.address}</p><h2>Monthly Statement</h2><table><tr><th>Employee Name</th><td>${em.name}</td></tr><tr><th>Employee ID</th><td>${em.id}</td></tr><tr><th>Designation</th><td>${em.post||''}</td></tr><tr><th>Group</th><td>${em.group} Group</td></tr><tr><th>Duty City</th><td>${em.prov||''} - ${em.city}</td></tr><tr><th>Month</th><td>${month}</td></tr><tr><th>Assigned Products</th><td>${assigned}</td></tr><tr><th>Sales / Notes</th><td>${note||'-'}</td></tr></table><p style="margin-top:30px">Signature: ____________________ &nbsp;&nbsp; Date: ______________</p><p>Generated by Mendoza Professional System</p><script>window.print()<\/script></body></html>`);
 w.document.close();
 }
-render();
+render(); applyCompanyInfo();
 </script>
 </body>
-</html>
+  </html>
