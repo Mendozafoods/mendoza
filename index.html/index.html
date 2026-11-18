@@ -3,25 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mendoza Food & Beverages</title>
+<title>Mendoza Food & Beverages - Professional System</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
 body{background:#fff7ed}
 header{background:#fff;display:flex;justify-content:space-between;align-items:center;padding:12px 12px;position:sticky;top:0;z-index:100;box-shadow:0 2px 10px rgba(0,0,0,.1)}
-.logo{font-weight:900;line-height:1.1;font-size:20px}
-.logo span:first-child{color:#ff6a00}.logo span:last-child{color:#1a7a1a}
+.logo{font-weight:900;line-height:1.1;font-size:20px}.logo span:first-child{color:#ff6a00}.logo span:last-child{color:#1a7a1a}
 .menu-btn{font-size:28px;background:none;border:none;cursor:pointer}
 .wa-btn{background:#ff6a00;color:#fff;padding:8px 14px;border-radius:30px;text-decoration:none;font-weight:700;font-size:14px;text-align:center}
 .admin-btn{background:#222;color:#fff;padding:8px 12px;border-radius:20px;border:none;font-weight:700;cursor:pointer}
-/* SIDEBAR */
 #sidebar{position:fixed;top:0;left:-280px;width:270px;height:100%;background:#fff;z-index:999;transition:.3s;box-shadow:5px 0 20px rgba(0,0,0,.3);padding:20px}
 #sidebar.open{left:0}
 #sidebar h3{color:#ff6a00;margin-bottom:15px}
 #sidebar a,#sidebar button{display:block;width:100%;text-align:left;padding:13px 10px;border:none;background:none;font-size:16px;font-weight:700;text-decoration:none;color:#222;border-bottom:1px solid #eee;cursor:pointer}
 #overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:998}
 .hero{background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),url('https://images.unsplash.com/photo-1542838132-92c53300491e?w=900');background-size:cover;background-position:center;text-align:center;color:#fff;padding:55px 15px}
-.hero h1{font-size:30px;line-height:1.3}.hero h1 b{color:#ffcc00;display:block;font-size:28px}
-.hero p{margin:15px 0;font-size:15px;line-height:1.5}
+.hero h1{font-size:30px;line-height:1.3}.hero h1 b{color:#ffcc00;display:block;font-size:28px}.hero p{margin:15px 0;font-size:15px;line-height:1.5}
 .btn-orange{background:#ff6a00;color:#fff;padding:13px 28px;border-radius:30px;border:none;font-size:17px;font-weight:800;display:inline-block;text-decoration:none}
 .btn-white{background:#fff;color:#222;padding:12px 22px;border-radius:30px;border:none;font-weight:700;margin-top:10px;display:inline-block}
 .section{padding:20px 12px;max-width:1000px;margin:auto}
@@ -40,25 +37,24 @@ header{background:#fff;display:flex;justify-content:space-between;align-items:ce
 .login-card{background:#fff;padding:25px;border-radius:20px;width:100%;max-width:360px;text-align:center}
 .login-card input{width:100%;padding:12px;margin:10px 0;border:1px solid #ddd;border-radius:10px}
 .login-card button{width:100%;padding:12px;background:#222;color:#fff;border:none;border-radius:10px;font-weight:800;cursor:pointer}
-/* ADMIN PANEL */
 .admin-panel{display:none;background:#f1f5f9;padding:18px 12px}
 .admin-panel h2{text-align:center;margin-bottom:12px}
 .admin-card{background:#fff;border-radius:15px;padding:16px;margin-bottom:15px;box-shadow:0 2px 10px rgba(0,0,0,.08)}
 .admin-card h3{margin-bottom:10px;color:#ff6a00}
-.admin-card input,.admin-card select{width:100%;padding:11px;margin:5px 0;border:1px solid #ddd;border-radius:10px}
+.admin-card input,.admin-card select,.admin-card textarea{width:100%;padding:11px;margin:5px 0;border:1px solid #ddd;border-radius:10px}
 .admin-card button{padding:11px 16px;border:none;border-radius:10px;font-weight:800;cursor:pointer;margin-top:6px}
-.btn-green{background:#1a7a1a;color:#fff}.btn-blue{background:#2563eb;color:#fff}.btn-red{background:#e11d48;color:#fff}.btn-orange2{background:#ff6a00;color:#fff}
+.btn-green{background:#1a7a1a;color:#fff}.btn-blue{background:#2563eb;color:#fff}.btn-red{background:#e11d48;color:#fff}.btn-orange2{background:#ff6a00;color:#fff}.btn-dark{background:#222;color:#fff}
 .data-row{display:flex;gap:10px;background:#fff;border:1px solid #eee;border-radius:12px;padding:10px;margin:8px 0;align-items:center}
 .data-row img{width:60px;height:60px;object-fit:cover;border-radius:50%;background:#ddd}
 .data-row .info{flex:1;font-size:13px;line-height:1.5}
 .group-badge{padding:2px 8px;border-radius:10px;color:#fff;font-size:11px;font-weight:800}
 .wa-float{position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;text-decoration:none;z-index:50}
 footer{background:#222;color:#fff;text-align:center;padding:20px;font-size:14px;line-height:1.6}
+.check-list label{display:block;font-size:13px;padding:5px 0;text-align:left}
 </style>
 </head>
 <body>
 
-<!-- SIDEBAR MENU -->
 <div id="overlay" onclick="toggleMenu()"></div>
 <div id="sidebar">
 <h3>☰ MENDOZA MENU</h3>
@@ -67,7 +63,7 @@ footer{background:#222;color:#fff;text-align:center;padding:20px;font-size:14px;
 <a href="#confectionery" onclick="toggleMenu()">🍬 Mendoza Confectionery</a>
 <a href="https://wa.me/923317524646">💬 WhatsApp Order</a>
 <button onclick="openLogin();toggleMenu()">🔐 Admin Panel</button>
-<button onclick="toggleMenu()" style="color:red">✖ Band Karein</button>
+<button onclick="toggleMenu()" style="color:red">✖ Close</button>
 <p style="font-size:12px;color:#888;margin-top:15px">Mendoza Food & Beverages<br>0331 7524646</p>
 </div>
 
@@ -90,66 +86,128 @@ footer{background:#222;color:#fff;text-align:center;padding:20px;font-size:14px;
 <p style="margin-top:15px;font-weight:700">⭐ <span id="totalCount">0</span> Products | ⭐ Best Quality | ⭐ Fast Delivery</p>
 </div>
 
-<!-- PRODUCT ADD - ADMIN ONLY -->
 <div class="section">
 <div class="add-box" id="addBox">
-<h3>➕ New Product Add Karein</h3>
+<h3>➕ Add New Product</h3>
 <select id="pCat"><option value="juice">Beverages</option><option value="confectionery">Mendoza Confectionery</option></select>
 <input id="pName" placeholder="Product Name"><input id="pPrice" type="number" placeholder="Rate">
 <input id="pPack" placeholder="Box / Packing"><input type="file" id="pImg" accept="image/*">
-<button onclick="addProduct()">Product Add Karein ✅</button>
+<button onclick="addProduct()">Add Product ✅</button>
 </div>
-<button id="showAddBtn" onclick="document.getElementById('addBox').style.display='block'" style="display:none;width:100%;padding:13px;background:#1a7a1a;color:#fff;border:none;border-radius:12px;font-weight:800;margin-bottom:15px;cursor:pointer">+ New Product Add Karein</button>
+<button id="showAddBtn" onclick="document.getElementById('addBox').style.display='block'" style="display:none;width:100%;padding:13px;background:#1a7a1a;color:#fff;border:none;border-radius:12px;font-weight:800;margin-bottom:15px;cursor:pointer">+ Add New Product</button>
 </div>
 
 <div class="bev-bg" id="beverages"><div class="section"><div class="sec-title">🥤 Mendoza Beverages</div><p style="text-align:center;color:#666;margin-bottom:15px"><span id="bevCount">0</span> Items</p><div class="grid" id="bevGrid"></div></div></div>
 <div class="conf-bg" id="confectionery"><div class="section"><div class="sec-title">🍬 Mendoza Confectionery</div><p style="text-align:center;color:#666;margin-bottom:15px"><span id="confCount">0</span> Items</p><div class="grid" id="confGrid"></div></div></div>
 
-<!-- ========== ADMIN PANEL - SIRF ADMIN KO NAZAR AYEGA ========== -->
+<!-- ADMIN PANEL - PROFESSIONAL ENGLISH -->
 <div class="admin-panel" id="adminPanel">
-<h2>🔐 Admin Panel - Private</h2>
-<p style="text-align:center;color:#666;font-size:13px;margin-bottom:15px">Ye hissa sirf Admin ko nazar aata hai. Customer ko nahi.</p>
+<h2>🔐 Admin Panel - Private & Professional</h2>
+<p style="text-align:center;color:#666;font-size:13px;margin-bottom:15px">Only Admin can see this section. Customers cannot see it.</p>
+
+<!-- PASSWORD -->
+<div class="admin-card" style="border:2px solid #ff6a00">
+<h3>🔑 Change Password</h3>
+<input type="password" id="oldPass" placeholder="Old Password">
+<input type="password" id="newPass" placeholder="New Password">
+<input type="password" id="confirmPass" placeholder="Confirm New Password">
+<button class="btn-orange2" onclick="changePassword()">Change Password ✅</button>
+<button style="background:#eee;color:#000" onclick="resetPassword()">Forgot Password? Reset</button>
+</div>
+
+<!-- DISTRIBUTOR -->
+<div class="admin-card" style="border:2px solid #2563eb">
+<h3>🚚 Distributor Management</h3>
+<input id="dName" placeholder="Distributor Name *">
+<input id="dPhone" placeholder="Phone / WhatsApp">
+<select id="dProvince" onchange="updateDistCities()">
+<option value="">Select Province *</option>
+<option>Sindh</option><option>Punjab</option><option>Balochistan</option><option>Khyber Pakhtunkhwa</option><option>Gilgit-Baltistan</option><option>Azad Kashmir</option><option>Islamabad Capital Territory</option>
+</select>
+<input id="dCity" placeholder="City - Where Distributor Works *">
+<input id="dArea" placeholder="Area / Territory">
+<label style="font-size:13px">Distributor Photo</label><input type="file" id="dPhoto" accept="image/*">
+<label style="font-size:13px">Agreement / Contract Documents</label><input type="file" id="dDoc" accept="image/*,.pdf">
+<button class="btn-blue" onclick="addDistributor()">Save Distributor ✅</button>
+<input id="dSearch" placeholder="🔍 Search Distributor - Name / Province / City" oninput="renderDistributors()" style="margin-top:12px">
+<div id="distributorList"></div>
+<button class="btn-dark" onclick="downloadDistributors()">⬇ Download Distributors List (CSV)</button>
+</div>
 
 <!-- CUSTOMER -->
 <div class="admin-card">
-<h3>👤 Customer Add Karein</h3>
-<input id="cShop" placeholder="Dukan ka Registered Naam *">
-<input id="cName" placeholder="Customer ka Naam *">
+<h3>👤 Customer Management</h3>
+<input id="cShop" placeholder="Shop Registered Name *">
+<input id="cName" placeholder="Customer Name *">
 <input id="cPhone" placeholder="Phone / WhatsApp">
-<input id="cCity" placeholder="Shehar / City">
-<label style="font-size:13px">Customer ki Tasveer</label><input type="file" id="cPhoto" accept="image/*">
-<label style="font-size:13px">Dukan ki Tasveer</label><input type="file" id="cShopPhoto" accept="image/*">
-<label style="font-size:13px">Muahiday ke Kagaz (Photo / PDF)</label><input type="file" id="cDoc" accept="image/*,.pdf">
-<button class="btn-green" onclick="addCustomer()">Customer Save Karein ✅</button>
-<p style="font-size:12px;color:#888;margin-top:5px">ID khud ban jayegi: CUS-001, CUS-002...</p>
-<input id="cSearch" placeholder="🔍 Customer Search - Naam / ID / Dukan likhein" oninput="renderCustomers()" style="margin-top:12px">
+<select id="cProvince"><option value="">Select Province</option><option>Sindh</option><option>Punjab</option><option>Balochistan</option><option>Khyber Pakhtunkhwa</option><option>Gilgit-Baltistan</option><option>Azad Kashmir</option><option>Islamabad Capital Territory</option></select>
+<input id="cCity" placeholder="City">
+<input id="cDist" placeholder="Distributor Name (Link Customer to Distributor)">
+<label style="font-size:13px">Customer Photo</label><input type="file" id="cPhoto" accept="image/*">
+<label style="font-size:13px">Shop Photo</label><input type="file" id="cShopPhoto" accept="image/*">
+<label style="font-size:13px">Agreement Documents</label><input type="file" id="cDoc" accept="image/*,.pdf">
+<button class="btn-green" onclick="addCustomer()">Save Customer ✅</button>
+<input id="cSearch" placeholder="🔍 Search Customer - Name / ID / Shop" oninput="renderCustomers()" style="margin-top:12px">
 <div id="customerList"></div>
+<button class="btn-dark" onclick="downloadCustomers()">⬇ Download Customers Data (CSV)</button>
 </div>
 
 <!-- EMPLOYEE -->
 <div class="admin-card">
-<h3>👨‍💼 Employee Add Karein</h3>
-<input id="eName" placeholder="Mulazim ka Naam *">
-<input id="ePost" placeholder="Ohda - jaise: Salesman, Driver, Manager">
+<h3>👨‍💼 Employee Management</h3>
+<input id="eName" placeholder="Employee Name *">
+<input id="ePost" placeholder="Designation - Salesman, Driver, Manager">
 <select id="eGroup"><option value="Blue">🔵 Blue Group</option><option value="Red">🔴 Red Group</option><option value="Pink">🩷 Pink Group</option><option value="Green">🟢 Green Group</option><option value="Yellow">🟡 Yellow Group</option></select>
-<input id="eCity" placeholder="Duty wala Shehar - jahan duty karta hai *">
+<select id="eProvince"><option value="">Select Province</option><option>Sindh</option><option>Punjab</option><option>Balochistan</option><option>Khyber Pakhtunkhwa</option><option>Gilgit-Baltistan</option><option>Azad Kashmir</option><option>Islamabad Capital Territory</option></select>
+<input id="eCity" placeholder="Duty City *">
 <input id="ePhone" placeholder="Phone">
 <label style="font-size:13px">Passport Size Photo</label><input type="file" id="ePhoto" accept="image/*">
 <label style="font-size:13px">Degree / Documents</label><input type="file" id="eDoc" accept="image/*,.pdf">
-<button class="btn-blue" onclick="addEmployee()">Employee Save Karein ✅</button>
-<p style="font-size:12px;color:#888;margin-top:5px">ID khud ban jayegi: EMP-001, EMP-002...</p>
-<input id="eSearch" placeholder="🔍 Employee Search - Naam ya ID likhein" oninput="renderEmployees()" style="margin-top:12px">
+<button class="btn-blue" onclick="addEmployee()">Save Employee ✅</button>
+<input id="eSearch" placeholder="🔍 Search Employee - Name or ID" oninput="renderEmployees()" style="margin-top:12px">
 <div id="employeeList"></div>
 </div>
+
+<!-- GROUP PRODUCTS ASSIGNMENT -->
+<div class="admin-card" style="border:2px solid #16a34a">
+<h3>📦 Group Wise Products Assignment</h3>
+<p style="font-size:13px;color:#666">Select Group and assign products. Admin can Edit / Delete assigned products.</p>
+<select id="gGroup"><option value="Blue">🔵 Blue Group</option><option value="Red">🔴 Red Group</option><option value="Pink">🩷 Pink Group</option><option value="Green">🟢 Green Group</option><option value="Yellow">🟡 Yellow Group</option></select>
+<input id="gProduct" placeholder="Product Name for this Group - e.g. Mango Juice">
+<input id="gPrice" type="number" placeholder="Rate">
+<input id="gQty" placeholder="Quantity / Target - e.g. 100 Boxes">
+<button class="btn-green" onclick="addGroupProduct()">Assign Product to Group ✅</button>
+<div id="groupProductList" style="margin-top:10px"></div>
 </div>
 
-<div id="loginBox"><div class="login-card"><h2>🔐 Admin Login</h2><input type="password" id="adminPass" placeholder="Password"><button onclick="doLogin()">Login</button><button onclick="closeLogin()" style="background:#eee;color:#000;margin-top:8px">Band Karein</button><p id="loginMsg" style="color:red;font-size:13px;margin-top:8px"></p><p style="font-size:12px;color:#999">Password: mendoza123</p></div></div>
+<!-- MONTHLY STATEMENT -->
+<div class="admin-card" style="border:2px solid #7c3aed">
+<h3>📄 Monthly Statement - PDF Download</h3>
+<p style="font-size:13px;color:#666">Select Employee and Month to download Monthly Statement PDF.</p>
+<select id="sEmployee"><option value="">Select Employee</option></select>
+<input type="month" id="sMonth">
+<textarea id="sNote" placeholder="Monthly Sales / Notes - e.g. Total Sales: Rs. 50000, Recovery: Rs. 45000"></textarea>
+<button class="btn-dark" onclick="downloadStatement()">⬇ Download Monthly Statement PDF</button>
+<button class="btn-blue" onclick="downloadEmployeeList()">⬇ Download All Employees Data (CSV)</button>
+</div>
+
+</div>
+
+<div id="loginBox"><div class="login-card"><h2>🔐 Admin Login</h2>
+<input type="password" id="adminPass" placeholder="Password">
+<label style="font-size:13px"><input type="checkbox" onclick="togglePass()" style="width:auto"> Show Password 👀</label><br>
+<button onclick="doLogin()">Login</button>
+<button onclick="closeLogin()" style="background:#eee;color:#000;margin-top:8px">Close</button>
+<p id="loginMsg" style="color:red;font-size:13px;margin-top:8px"></p>
+<p style="font-size:12px;color:#999">First Time Password: <b>mendoza123</b></p>
+</div></div>
 
 <a class="wa-float" href="https://wa.me/923317524646">💬</a>
-<footer><b>MENDOZA Food & Beverages</b><br>WhatsApp: 0331 7524646<br>Fresh, Pure & Tasty - Har Ghar Ka Choice!</footer>
+<footer><b>MENDOZA Food & Beverages</b><br>WhatsApp: 0331 7524646<br>Fresh, Pure & Tasty - Professional Distribution System</footer>
 
 <script>
 let isAdmin=false;
+function getPass(){return localStorage.getItem('mendoza_admin_pass') || 'mendoza123'}
 let products=JSON.parse(localStorage.getItem('mendoza_products')||'null')||[
 {name:"Mango Juice 200ml",price:50,pack:"Box = 24 Pcs",cat:"juice",img:"https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=400"},
 {name:"Mendoza Water 5 Litre",price:220,pack:"1 Bottle",cat:"juice",img:"https://images.unsplash.com/photo-1523362628745-0c100150b504?w=400"},
@@ -157,53 +215,128 @@ let products=JSON.parse(localStorage.getItem('mendoza_products')||'null')||[
 ];
 let customers=JSON.parse(localStorage.getItem('mendoza_customers')||'[]');
 let employees=JSON.parse(localStorage.getItem('mendoza_employees')||'[]');
+let distributors=JSON.parse(localStorage.getItem('mendoza_distributors')||'[]');
+let groupProducts=JSON.parse(localStorage.getItem('mendoza_group_products')||'[]');
 function toggleMenu(){document.getElementById('sidebar').classList.toggle('open');document.getElementById('overlay').style.display=document.getElementById('sidebar').classList.contains('open')?'block':'none'}
+function togglePass(){let x=document.getElementById('adminPass');x.type=x.type==='password'?'text':'password'}
 function saveP(){localStorage.setItem('mendoza_products',JSON.stringify(products))}
+function updateDistCities(){}
 function render(){
 let bev=document.getElementById('bevGrid'),conf=document.getElementById('confGrid');bev.innerHTML='';conf.innerHTML='';let b=0,c=0;
 products.forEach((p,i)=>{let d=document.createElement('div');d.className='card';d.innerHTML=`<img src="${p.img}"><h3>${p.name}</h3><div class="price">Rs. ${p.price}</div><div class="pack">${p.pack}</div><button onclick="order('${p.name}')">Order Now</button>${isAdmin?`<div style="display:flex;gap:5px;justify-content:center;margin-top:8px"><button style="background:#ff9a00" onclick="editProduct(${i})">Edit</button><button style="background:#e11d48" onclick="delProduct(${i})">Delete</button></div>`:''}`;if(p.cat==='confectionery'){conf.appendChild(d);c++}else{bev.appendChild(d);b++}});
 document.getElementById('totalCount').innerText=products.length;document.getElementById('bevCount').innerText=b;document.getElementById('confCount').innerText=c;
 }
-function order(n){window.open('https://wa.me/923317524646?text='+encodeURIComponent('Assalam-o-Alaikum! Mujhe '+n+' order karna hai.'),'_blank')}
+function order(n){window.open('https://wa.me/923317524646?text='+encodeURIComponent('Hello! I want to order '+n),'_blank')}
 function openLogin(){if(isAdmin){logout();return}document.getElementById('loginBox').style.display='flex'}
 function closeLogin(){document.getElementById('loginBox').style.display='none'}
-function doLogin(){if(document.getElementById('adminPass').value==='mendoza123'){isAdmin=true;closeLogin();document.getElementById('adminBtn').innerText='Logout';document.getElementById('showAddBtn').style.display='block';document.getElementById('addBox').style.display='block';document.getElementById('adminPanel').style.display='block';render();renderCustomers();renderEmployees();alert('Welcome Admin! Ab Customer / Employee bhi nazar ayenge.')}else{document.getElementById('loginMsg').innerText='Galat Password!'}}
+function doLogin(){
+let entered=document.getElementById('adminPass').value.trim();
+if(entered===getPass()){isAdmin=true;closeLogin();document.getElementById('adminBtn').innerText='Logout';document.getElementById('showAddBtn').style.display='block';document.getElementById('addBox').style.display='block';document.getElementById('adminPanel').style.display='block';render();renderCustomers();renderEmployees();renderDistributors();renderGroupProducts();updateStatementDropdown();alert('Welcome Admin!');}
+else{document.getElementById('loginMsg').innerText='Wrong Password! First password is mendoza123'}
+}
 function logout(){isAdmin=false;document.getElementById('adminBtn').innerText='Admin';document.getElementById('showAddBtn').style.display='none';document.getElementById('addBox').style.display='none';document.getElementById('adminPanel').style.display='none';render()}
-function addProduct(){let name=document.getElementById('pName').value,price=document.getElementById('pPrice').value,pack=document.getElementById('pPack').value,cat=document.getElementById('pCat').value;if(!name||!price){alert('Naam aur Rate likhein');return}let f=document.getElementById('pImg').files[0];if(f){let r=new FileReader();r.onload=e=>{products.push({name,price,pack,cat,img:e.target.result});saveP();render();alert('Add Ho Gaya!')};r.readAsDataURL(f)}else{products.push({name,price,pack,cat,img:"https://images.unsplash.com/photo-1582058091505-f6b585e55aa7?w=400"});saveP();render();alert('Add Ho Gaya!')}}
+function changePassword(){
+let oldP=document.getElementById('oldPass').value.trim();let newP=document.getElementById('newPass').value.trim();let confP=document.getElementById('confirmPass').value.trim();
+if(oldP!==getPass()){alert('Old Password is wrong!');return}
+if(newP.length<4){alert('New Password must be at least 4 characters');return}
+if(newP!==confP){alert('New Password does not match');return}
+localStorage.setItem('mendoza_admin_pass',newP);alert('Password Changed Successfully! New Password: '+newP);
+document.getElementById('oldPass').value='';document.getElementById('newPass').value='';document.getElementById('confirmPass').value='';
+}
+function resetPassword(){if(confirm('Reset Password to mendoza123?')){localStorage.setItem('mendoza_admin_pass','mendoza123');alert('Password Reset Done! Now login with mendoza123')}}
+function addProduct(){let name=document.getElementById('pName').value,price=document.getElementById('pPrice').value,pack=document.getElementById('pPack').value,cat=document.getElementById('pCat').value;if(!name||!price){alert('Name and Rate Required');return}let f=document.getElementById('pImg').files[0];if(f){let r=new FileReader();r.onload=e=>{products.push({name,price,pack,cat,img:e.target.result});saveP();render();alert('Product Added!')};r.readAsDataURL(f)}else{products.push({name,price,pack,cat,img:"https://images.unsplash.com/photo-1582058091505-f6b585e55aa7?w=400"});saveP();render();alert('Product Added!')}}
 function delProduct(i){if(confirm('Delete?')){products.splice(i,1);saveP();render()}}
-function editProduct(i){let p=products[i];let n=prompt('Naam:',p.name);if(n)p.name=n;let pr=prompt('Rate:',p.price);if(pr)p.price=pr;let pk=prompt('Packing:',p.pack);if(pk)p.pack=pk;saveP();render()}
+function editProduct(i){let p=products[i];let n=prompt('Name:',p.name);if(n)p.name=n;let pr=prompt('Rate:',p.price);if(pr)p.price=pr;let pk=prompt('Packing:',p.pack);if(pk)p.pack=pk;saveP();render()}
 function readFile(id,cb){let f=document.getElementById(id).files[0];if(!f){cb('');return}let r=new FileReader();r.onload=e=>cb(e.target.result);r.readAsDataURL(f)}
+// DISTRIBUTOR
+function addDistributor(){
+let name=document.getElementById('dName').value, phone=document.getElementById('dPhone').value, prov=document.getElementById('dProvince').value, city=document.getElementById('dCity').value, area=document.getElementById('dArea').value;
+if(!name||!prov||!city){alert('Distributor Name, Province and City Required');return}
+let id='DIS-'+String(distributors.length+1).padStart(3,'0');
+readFile('dPhoto',photo=>{readFile('dDoc',doc=>{
+distributors.push({id,name,phone,prov,city,area,photo,doc});localStorage.setItem('mendoza_distributors',JSON.stringify(distributors));renderDistributors();alert('Distributor Saved! ID: '+id);
+document.getElementById('dName').value='';document.getElementById('dPhone').value='';document.getElementById('dCity').value='';document.getElementById('dArea').value='';
+})});
+}
+function renderDistributors(){
+let q=(document.getElementById('dSearch').value||'').toLowerCase();let list=document.getElementById('distributorList');list.innerHTML='';
+distributors.forEach((d,i)=>{if(q && !(d.name.toLowerCase().includes(q)||d.prov.toLowerCase().includes(q)||d.city.toLowerCase().includes(q))) return;
+list.innerHTML+=`<div class="data-row"><img src="${d.photo||'https://via.placeholder.com/60'}"><div class="info"><b>${d.name}</b> (${d.id})<br>📍 ${d.prov} - ${d.city} ${d.area?'- '+d.area:''}<br>📞 ${d.phone||''} ${d.doc?`<br><a href="${d.doc}" target="_blank">📄 Agreement Document</a>`:''}</div><button class="btn-red" onclick="delDistributor(${i})">Del</button></div>`});
+}
+function delDistributor(i){if(confirm('Delete Distributor?')){distributors.splice(i,1);localStorage.setItem('mendoza_distributors',JSON.stringify(distributors));renderDistributors()}}
+function downloadDistributors(){downloadCSV('distributors.csv', distributors.map(d=>[d.id,d.name,d.phone,d.prov,d.city,d.area]))}
+// CUSTOMER
 function addCustomer(){
-let shop=document.getElementById('cShop').value, name=document.getElementById('cName').value, phone=document.getElementById('cPhone').value, city=document.getElementById('cCity').value;
-if(!shop||!name){alert('Dukan ka naam aur Customer ka naam zaroori hai');return}
+let shop=document.getElementById('cShop').value, name=document.getElementById('cName').value, phone=document.getElementById('cPhone').value, prov=document.getElementById('cProvince').value, city=document.getElementById('cCity').value, dist=document.getElementById('cDist').value;
+if(!shop||!name){alert('Shop Name and Customer Name Required');return}
 let id='CUS-'+String(customers.length+1).padStart(3,'0');
 readFile('cPhoto',photo=>{readFile('cShopPhoto',shopPhoto=>{readFile('cDoc',doc=>{
-customers.push({id,shop,name,phone,city,photo,shopPhoto,doc});localStorage.setItem('mendoza_customers',JSON.stringify(customers));renderCustomers();alert('Customer Save Ho Gaya! ID: '+id);
+customers.push({id,shop,name,phone,prov,city,dist,photo,shopPhoto,doc});localStorage.setItem('mendoza_customers',JSON.stringify(customers));renderCustomers();alert('Customer Saved! ID: '+id);
 document.getElementById('cShop').value='';document.getElementById('cName').value='';document.getElementById('cPhone').value='';document.getElementById('cCity').value='';
 })})});
 }
 function renderCustomers(){
 let q=(document.getElementById('cSearch').value||'').toLowerCase();let list=document.getElementById('customerList');list.innerHTML='';
 customers.forEach((cu,i)=>{if(q && !(cu.name.toLowerCase().includes(q)||cu.shop.toLowerCase().includes(q)||cu.id.toLowerCase().includes(q))) return;
-list.innerHTML+=`<div class="data-row"><img src="${cu.photo||'https://via.placeholder.com/60'}"><div class="info"><b>${cu.shop}</b> (${cu.id})<br>${cu.name} | ${cu.city||''} | ${cu.phone||''}<br>${cu.shopPhoto?`<a href="${cu.shopPhoto}" target="_blank">🏪 Dukan Photo</a> `:''}${cu.doc?`<a href="${cu.doc}" target="_blank">📄 Muahida</a>`:''}</div><button class="btn-red" onclick="delCustomer(${i})">Del</button></div>`});
+list.innerHTML+=`<div class="data-row"><img src="${cu.photo||'https://via.placeholder.com/60'}"><div class="info"><b>${cu.shop}</b> (${cu.id})<br>${cu.name} | ${cu.prov||''} - ${cu.city||''}<br>Distributor: ${cu.dist||'-'} | 📞 ${cu.phone||''}<br>${cu.shopPhoto?`<a href="${cu.shopPhoto}" target="_blank">🏪 Shop Photo</a> `:''}${cu.doc?`<a href="${cu.doc}" target="_blank">📄 Agreement</a>`:''}</div><button class="btn-red" onclick="delCustomer(${i})">Del</button></div>`});
 }
-function delCustomer(i){if(confirm('Customer delete?')){customers.splice(i,1);localStorage.setItem('mendoza_customers',JSON.stringify(customers));renderCustomers()}}
+function delCustomer(i){if(confirm('Delete Customer?')){customers.splice(i,1);localStorage.setItem('mendoza_customers',JSON.stringify(customers));renderCustomers()}}
+function downloadCustomers(){downloadCSV('customers.csv', customers.map(c=>[c.id,c.shop,c.name,c.phone,c.prov,c.city,c.dist]))}
+// EMPLOYEE
 function addEmployee(){
-let name=document.getElementById('eName').value, post=document.getElementById('ePost').value, group=document.getElementById('eGroup').value, city=document.getElementById('eCity').value, phone=document.getElementById('ePhone').value;
-if(!name||!city){alert('Naam aur Duty wala Shehar zaroori hai');return}
+let name=document.getElementById('eName').value, post=document.getElementById('ePost').value, group=document.getElementById('eGroup').value, prov=document.getElementById('eProvince').value, city=document.getElementById('eCity').value, phone=document.getElementById('ePhone').value;
+if(!name||!city){alert('Name and Duty City Required');return}
 let id='EMP-'+String(employees.length+1).padStart(3,'0');
 readFile('ePhoto',photo=>{readFile('eDoc',doc=>{
-employees.push({id,name,post,group,city,phone,photo,doc});localStorage.setItem('mendoza_employees',JSON.stringify(employees));renderEmployees();alert('Employee Save Ho Gaya! ID: '+id);
+employees.push({id,name,post,group,prov,city,phone,photo,doc});localStorage.setItem('mendoza_employees',JSON.stringify(employees));renderEmployees();updateStatementDropdown();alert('Employee Saved! ID: '+id);
 document.getElementById('eName').value='';document.getElementById('ePost').value='';document.getElementById('eCity').value='';document.getElementById('ePhone').value='';
 })});
 }
 function renderEmployees(){
 let q=(document.getElementById('eSearch').value||'').toLowerCase();let list=document.getElementById('employeeList');list.innerHTML='';
 let colors={Blue:'#2563eb',Red:'#e11d48',Pink:'#ec4899',Green:'#16a34a',Yellow:'#eab308'};
-employees.forEach((em,i)=>{if(q && !(em.name.toLowerCase().includes(q)||em.id.toLowerCase().includes(q))) return;
-list.innerHTML+=`<div class="data-row"><img src="${em.photo||'https://via.placeholder.com/60'}"><div class="info"><b>${em.name}</b> (${em.id})<br>${em.post||''} | <span class="group-badge" style="background:${colors[em.group]}">${em.group} Group</span><br>📍 Duty: ${em.city} | 📞 ${em.phone||''}<br>${em.doc?`<a href="${em.doc}" target="_blank">📄 Degree / Document</a>`:''}</div><button class="btn-red" onclick="delEmployee(${i})">Del</button></div>`});
+employees.forEach((em,i)=>{
+let assigned=groupProducts.filter(g=>g.group===em.group).map(g=>g.product).join(', ')||'No Products Assigned';
+if(q && !(em.name.toLowerCase().includes(q)||em.id.toLowerCase().includes(q))) return;
+list.innerHTML+=`<div class="data-row"><img src="${em.photo||'https://via.placeholder.com/60'}"><div class="info"><b>${em.name}</b> (${em.id})<br>${em.post||''} | <span class="group-badge" style="background:${colors[em.group]}">${em.group} Group</span><br>📍 Duty: ${em.prov||''} - ${em.city} | 📞 ${em.phone||''}<br><b>Assigned Products:</b> ${assigned}<br>${em.doc?`<a href="${em.doc}" target="_blank">📄 Degree / Document</a>`:''}</div><button class="btn-red" onclick="delEmployee(${i})">Del</button></div>`});
 }
-function delEmployee(i){if(confirm('Employee delete?')){employees.splice(i,1);localStorage.setItem('mendoza_employees',JSON.stringify(employees));renderEmployees()}}
+function delEmployee(i){if(confirm('Delete Employee?')){employees.splice(i,1);localStorage.setItem('mendoza_employees',JSON.stringify(employees));renderEmployees();updateStatementDropdown()}}
+// GROUP PRODUCTS
+function addGroupProduct(){
+let group=document.getElementById('gGroup').value, product=document.getElementById('gProduct').value, price=document.getElementById('gPrice').value, qty=document.getElementById('gQty').value;
+if(!product){alert('Product Name Required');return}
+groupProducts.push({group,product,price,qty});localStorage.setItem('mendoza_group_products',JSON.stringify(groupProducts));renderGroupProducts();renderEmployees();
+document.getElementById('gProduct').value='';document.getElementById('gPrice').value='';document.getElementById('gQty').value='';
+alert('Product Assigned to '+group+' Group!');
+}
+function renderGroupProducts(){
+let list=document.getElementById('groupProductList');list.innerHTML='';
+let colors={Blue:'#2563eb',Red:'#e11d48',Pink:'#ec4899',Green:'#16a34a',Yellow:'#eab308'};
+groupProducts.forEach((g,i)=>{
+list.innerHTML+=`<div class="data-row"><div class="info"><span class="group-badge" style="background:${colors[g.group]}">${g.group} Group</span> <b>${g.product}</b><br>Rate: Rs. ${g.price||'-'} | Qty/Target: ${g.qty||'-'}</div><button style="background:#ff9a00;color:#fff" onclick="editGroupProduct(${i})">Edit</button><button class="btn-red" onclick="delGroupProduct(${i})">Del</button></div>`;
+});
+}
+function editGroupProduct(i){let g=groupProducts[i];let n=prompt('Product Name:',g.product);if(n)g.product=n;let p=prompt('Rate:',g.price);if(p)g.price=p;let q=prompt('Qty/Target:',g.qty);if(q)g.qty=q;localStorage.setItem('mendoza_group_products',JSON.stringify(groupProducts));renderGroupProducts();renderEmployees();}
+function delGroupProduct(i){if(confirm('Delete this assigned product? Only Admin can delete.')){groupProducts.splice(i,1);localStorage.setItem('mendoza_group_products',JSON.stringify(groupProducts));renderGroupProducts();renderEmployees();}}
+// DOWNLOAD HELPERS
+function downloadCSV(filename, rows){
+let csv='ID,Name,Phone,Province,City,Extra\n'+rows.map(r=>r.join(',')).join('\n');
+let a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download=filename;a.click();
+}
+function downloadEmployeeList(){downloadCSV('employees.csv', employees.map(e=>[e.id,e.name,e.phone,e.prov,e.city,e.group+'-'+e.post]))}
+function updateStatementDropdown(){
+let sel=document.getElementById('sEmployee');sel.innerHTML='<option value="">Select Employee</option>';
+employees.forEach(e=>{sel.innerHTML+=`<option value="${e.id}">${e.name} (${e.id}) - ${e.group} Group</option>`});
+}
+function downloadStatement(){
+let empId=document.getElementById('sEmployee').value;let month=document.getElementById('sMonth').value;let note=document.getElementById('sNote').value;
+if(!empId||!month){alert('Please Select Employee and Month');return}
+let em=employees.find(e=>e.id===empId);
+let assigned=groupProducts.filter(g=>g.group===em.group).map(g=>g.product+' - Rs.'+g.price).join('<br>')||'No Products Assigned';
+let w=window.open('','_blank');
+w.document.write(`<html><head><title>Monthly Statement - ${em.name}</title><style>body{font-family:Arial;padding:30px}h1{color:#ff6a00}table{width:100%;border-collapse:collapse;margin-top:15px}td,th{border:1px solid #ddd;padding:10px;text-align:left}</style></head><body><h1>MENDOZA Food & Beverages</h1><h2>Monthly Statement</h2><table><tr><th>Employee Name</th><td>${em.name}</td></tr><tr><th>Employee ID</th><td>${em.id}</td></tr><tr><th>Designation</th><td>${em.post||''}</td></tr><tr><th>Group</th><td>${em.group} Group</td></tr><tr><th>Duty City</th><td>${em.prov||''} - ${em.city}</td></tr><tr><th>Month</th><td>${month}</td></tr><tr><th>Assigned Products</th><td>${assigned}</td></tr><tr><th>Sales / Notes</th><td>${note||'-'}</td></tr></table><p style="margin-top:30px">Signature: ____________________ &nbsp;&nbsp; Date: ______________</p><p>Generated by Mendoza Professional System</p><script>window.print()<\/script></body></html>`);
+w.document.close();
+}
 render();
 </script>
 </body>
